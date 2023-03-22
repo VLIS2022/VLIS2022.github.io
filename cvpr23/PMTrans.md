@@ -4,6 +4,8 @@ title: Patch-Mix Transformer for Unsupervised Domain Adaptation: A Game Perspect
 description: CVPR 2023(Highlight)
 ---
 
+
+
 # Abstract
 
 Endeavors have been recently made to leverage the vision transformer (ViT) for the challenging unsupervised domain adaptation (UDA) task. They typically adopt the cross-attention in ViT for direct domain alignment. However, as the performance of cross-attention highly relies on the quality of pseudo labels for targeted samples, it becomes less effective when the domain gap becomes large. We solve this problem from a game theory’s perspective with the pro-
