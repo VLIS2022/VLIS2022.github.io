@@ -15,10 +15,10 @@ Endeavors have been recently made to leverage the vision transformer (ViT) for t
 # Publication
 
 ```
-@article{lu21cvpr,
+@article{zhu23cvpr,
   title={Patch-Mix Transformer for Unsupervised Domain Adaptation: A Game Perspective},
   author={Jinjing Zhu, Haotian Bai, Lin Wang},
   journal={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2022}
+  year={2023}
 }
 ```
