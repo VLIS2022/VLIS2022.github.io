@@ -1,6 +1,6 @@
 
 # title: Patch-Mix Transformer for Unsupervised Domain Adaptation:A Game Perspective
-# description: CVPR 2023 <font color=gray size=72>color=gray</font>
+CVPR 2023 <font color=gray size=72>color=gray</font>
 
 
 # Abstract
