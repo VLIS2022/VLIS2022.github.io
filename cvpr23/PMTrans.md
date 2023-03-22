@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Patch-Mix Transformer for Unsupervised Domain Adaptation:A Game Perspective
-description: CVPR 2023(_Highlight_)
+description: CVPR 2023(Highlight)
 ---
 
 
