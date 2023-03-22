@@ -1,10 +1,7 @@
----
-layout: default
-title: Patch-Mix Transformer for Unsupervised Domain Adaptation:A Game Perspective
-description: CVPR 2023(<font color=red> Highlight </font>)
----
 
-<font color=gray size=72>color=gray</font>
+# title: Patch-Mix Transformer for Unsupervised Domain Adaptation:A Game Perspective
+# description: CVPR 2023 <font color=gray size=72>color=gray</font>
+
 
 # Abstract
 
