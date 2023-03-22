@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>HRDFuse</title>
+    <meta name="author" content="Hao Ai">
+    <meta name="description" content="Project page of HRDFuse paper, 2023">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="eccv_logo.png">
+    <!-- Format -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="../format/app.css">
+    <link rel="stylesheet" href="../format/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="../format/app.js"></script>
+
+  </head>
+
+  <body style=“text-align: center;”>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+               HRDFuse:  Monocular 360&deg; Depth Estimation by Collaboratively Learning Holistic-with-Regional Depth Distributions  <br /> 
+         
+<!--                 <small>
+                    
+                </small> -->
+            </h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+			<img src="./image/haoai.jpg" height="80px"><br>
+                        <a href="https://haoai-1997.github.io/" >
+                         Hao Ai
+                        </a>
+                        <br /> HKUST(GZ)
+                        <br /> &nbsp &nbsp
+                    </li>
+
+                    <li>
+			<img src="./image/zidongcao.jpg" height="80px"><br>
+                        Zidong Cao
+                      </a>
+                        <br /> HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+
+                    <li>
+                        <a href="https://yanpei.me/">
+                            Yanpei Cao
+                      </a>
+                        <br />ARC Lab, Tencent PCG
+                      <br /> &nbsp &nbsp
+                    </li>
+              
+                    <li>
+                           Ying Shan
+                        </a>
+                        <br />ARC Lab, Tencent PCG
+                      <br /> &nbsp &nbsp
+                    </li>
+                  
+                    <li>
+			    <img src="./image/linwang.jpg" height="80px"><br>
+                        <a href="https://addisonwang2013.github.io/vlislab/linwang.html">
+                           Addison Lin Wang
+                        </a>
+                        <br /> AI Trust, HKUST(GZ) 
+			    <br/> Dept. of CSE, HKUST 
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- ##### Elements #####-->
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <img src="./paper.png" height="100px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+
+                            <img src="../images/youtube_icon.jpg" height="100px"><br>
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/haoai-1997/HRDFuse">
+                            <img src="../images/github_icon.jpg" height="100px"><br>
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+
+                        <li>
+                            
+                            <img src="../images/colab_icon.jpg" height="100px"><br>
+                                <h4><strong>Colab</strong></h4>
+                            </a>
+                        </li>
+ 
+
+                        <li>
+                            <a href="https://github.com/haoai-1997/haoai-1997.github.io/blob/main/HRDFuse/CVPR2023_HRDFuse_supp.pdf">
+                            <img src="../images/slide_icon.jpg" height="100px"><br>
+                                <h4><strong>Supp</strong></h4>
+                            </a>
+                        </li>                     
+                      
+                      
+                    </ul>
+                </div>
+        </div>
+
+
+        <!-- ##### Abstract #####-->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+               Depth estimation from a monocular 360&deg; image is a burgeoning problem owing to its holistic sensing of a scene. Recently, some methods, \eg, OmniFusion, have applied the tangent projection (TP) to represent a 360&deg; image and predicted depth values via patch-wise regressions, which are merged to get a depth map with equirectangular projection (ERP) format. However, these methods suffer from 1) non-trivial process of merging plenty of patches; 2) capturing less holistic-with-regional contextual information by directly regressing the depth value of each pixel. In this paper, we propose a novel framework, <b>HRDFuse</b>, that subtly combines the potential of convolutional neural networks (CNNs) and transformers by collaboratively learning the <i>holistic</i> contextual information from the ERP and the <i>regional</i> structural information from the TP.  Firstly, we propose a spatial feature alignment (<b>SFA</b>) module that learns feature similarities between the TP and ERP to aggregate the TP features into a complete ERP feature map in a pixel-wise manner. Secondly, we propose a collaborative depth distribution classification (<b>CDDC</b>) module that learns the <b>holistic-with-regional</b> histograms capturing the ERP and TP depth distributions. As such, the final depth values can be predicted as a linear combination of histogram bin centers. Lastly, we adaptively combine the depth predictions from ERP and TP to obtain the final depth map. Extensive experiments show that our method predicts <b>more smooth and accurate depth</b> results while achieving <b>favorably better</b> results than the SOTA methods.
+                </p>
+            </div>
+        </div>
+
+ 
+
+        <!-- ##### Results #####-->
+   
+     <div class="row">     
+       
+     <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Results on the benchmarkdataset: Stanford2D3D, Matterport3D and 3D60
+          </h3>
+		  <img src="./visual_results.png" class="img-responsive" alt="vis_res" class="center"><br>
+    </div>     
+      </div>
+
+        <!-- ##### Approach #####-->
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+              <h3>
+                Approach 
+              </h3>
+              <p class="text-justify">
+             Overview of our HRDFuse, consisting of three parts: feature extractors for both ERP and TP inputs, spatial feature alignment (SFA) module, 
+             and collaborative depth distribution classification (CDDC) module. 
+		      <br>
+	     As depicted in the framework figure, to exploit the complementary information from holistic context and regional structure, our framework simultaneously takes two projections of a 360&deg; image, an ERP image and <i>N</i> TP patches, as inputs. For the ERP branch, an ERP image with the resolution of <i>H x W</i> is fed into a feature extractor, comprised of an encoder-decoder block, to produce a decoded ERP feature map <b>F<sup>ERP</sup></b>. For the TP branch, <i>N</i> TP patches are first obtained with gnomonic projection from the same sphere. Then, these TP patches are passed through the TP feature extractor to obtain 1-D patch feature vectors {V<sub>n</sub>, n=1,..., N}, which are passed through the TP decoder to obtain the TP feature maps {<b>F<sub>n</sub><sup>TP</sup></b>}. 
+
+To determine and align the spatial location of each TP patch in the ERP space and avoid complex geometric fusion for overlapping areas between neighboring TP patches, we propose the spatial feature alignment (SFA) module to learn feature correspondences between pixel vectors in the ERP feature map <b>F<sup>ERP</sup></b> and patch feature vectors {V<sub>n</sub>, n=1,..., N}. This way, we can obtain the spatially aligned index map <b>M</b>, recording the location of each patch in the ERP space.
+
+Next, the index map <b>M</b>, ERP feature map <b>F<sup>ERP</sup></b>, and TP feature maps <b>F<sub>n</sub><sup>TP</sup></b> are fed into the proposed collaborative depth distribution classification (CDDC) module that accordingly outputs two ERP format depth predictions. In principle, the CDDC module first learns holistic-with-regional histograms to simultaneously capture depth distributions from the ERP image and a set of TP patches. Consequently, the depth distributions are then converted to depth values through a linear combination of bin centers. Lastly, the two depth predictions from the CDDC module are adaptively fused to output the final depth result. We now describe these modules in detail.
+              </p>
+		      
+            <img src="./sfa-v6.png" class="img-responsive" alt="method" class="center"><br>
+
+          </div>
+        </div>
+    
+    
+         <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results on Real Data
+                </h3>   
+            
+          <img src="./real_data.png" class="img-responsive" alt="real" class="center"><br>
+           
+          </div>
+        </div>
+		      
+    	<div class="row">      
+     <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Demo with Our HRDFuse
+          </h3>   
+    </div>   
+      
+    <div class="col-md-8 col-md-offset-2">
+
+            <video width="800"  controls >
+                <source src="./video/1.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>   
+    </div>          
+      </div>
+   <!-- ##### BibTex #####-->
+        <hr>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+ 
+                <div class="row align-items-center">
+                    <div class="col py-3">
+                        <pre class="border">             
+@inproceedings{ai2023HRDFuse,
+  title={HRDFuse: Monocular 360&deg; Depth Estimation by Collaboratively Learning Holistic-with-Regional Depth Distributions},
+  author={Hao Ai, Zidong Cao, Yan-pei Cao, Ying Shan, Lin Wang},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2023}
+}
+</pre>
+                    </div>
+                </div>
+              
+    
+          </div>
+          
+        </div>
+    </div>
+</body>
+</html>
