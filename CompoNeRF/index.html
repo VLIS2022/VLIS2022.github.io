@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>CompoNeRF</title>
+    <meta name="author" content="Hao Ai">
+    <meta name="description" content="Project page of CompoNeRF paper, 2023">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="eccv_logo.png">
+    <!-- Format -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="../format/app.css">
+    <link rel="stylesheet" href="../format/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="../format/app.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$', '$']]},
+            messageStyle: "none"
+        });
+    </script>
+  </head>
+
+  <body style=“text-align: center;”>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                CompoNeRF: Text-guided Multi-object Compositional NeRF with Editable 3D Scene Layout<br /> 
+         
+<!--                 <small>
+                    
+                </small> -->
+            </h1>
+        </div>
+
+        <!-- ##### Elements #####-->
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+			    <a href="http://arxiv.org/abs/2303.13843">
+                            <img src="./paper.png" height="100px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+
+                            <img src="./image/youtube_icon.jpg" height="100px"><br>
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <!-- <a href="https://github.com/haoai-1997/HRDFuse"> -->
+                            <img src="./image/github_icon.jpg" height="100px"><br>
+                                <h4><strong>Code (Coming Soon)</strong></h4>
+                            </a>
+                        </li>
+
+                        <!-- <li>
+                            
+                            <img src="../images/colab_icon.jpg" height="100px"><br>
+                                <h4><strong>Colab</strong></h4>
+                            </a>
+                        </li> -->
+ 
+
+                        <!-- <li>
+                            <a href="https://github.com/haoai-1997/haoai-1997.github.io/blob/main/HRDFuse/CVPR2023_HRDFuse_supp.pdf">
+                            <img src="../images/slide_icon.jpg" height="100px"><br>
+                                <h4><strong>Supp</strong></h4>
+                            </a>
+                        </li>                     
+                       -->
+                      
+                    </ul>
+                </div>
+        </div>
+
+
+        <!-- ##### Abstract #####-->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Recent research endeavors have shown that combining neural radiance fields (NeRFs) with pre-trained diffusion models holds great potential for text-to-3D generation.
+                    However, a hurdle is that they often encounter guidance collapse when rendering complex scenes from multi-object texts. 
+                    Because the text-to-image diffusion models are inherently unconstrained, making them less competent to accurately associate object semantics with specific 3D structures.
+                    To address this issue, we propose a novel framework, dubbed \textbf{CompoNeRF}, that explicitly incorporates an editable 3D scene layout to provide effective guidance at the single object (\ie, local) and whole scene (\ie, global) levels. 
+                    Firstly, we interpret the multi-object text as an editable 3D scene layout containing multiple local NeRFs associated with the object-specific 3D box coordinates and text prompt, which can be easily collected from users.
+                    Then, we introduce a global MLP to calibrate the compositional latent features from local NeRFs, which surprisingly improves the view consistency across different local NeRFs. 
+                    Lastly, we apply the text guidance on global and local levels through their corresponding views to avoid guidance ambiguity.
+                    This way, our CompoNeRF allows for flexible scene editing and re-composition of trained local NeRFs into a new scene by manipulating the 3D layout or text prompt. Leveraging the open-source Stable Diffusion model, our CompoNeRF can generate faithful and editable text-to-3D results while opening a potential direction for text-guided multi-object composition via the editable 3D scene layout.
+                </p>
+            </div>
+        </div>
+
+ 
+
+        <!-- ##### Results #####-->
+   
+     <div class="row">     
+       
+     <!-- <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Results on the benchmarkdataset: Stanford2D3D, Matterport3D and 3D60
+          </h3>
+		  <img src="./visual_results.png" class="img-responsive" alt="vis_res" class="center"><br>
+    </div>      -->
+      </div>
+
+        <!-- ##### Approach #####-->
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+              <h3>
+                Approach 
+              </h3>
+		      <br>
+              CompoNeRF consists of three parts: 1). The editable 3D scene layout configures the scene representations with 3D boxes and text prompts; 2).  The scene rendering includes the global calibration and the compositional process; 3). The joint optimization applies global and local text guidance on global and local render views.
+
+            Figure illustrates our pipeline, which consists of three main components, including the editable 3D scene layout based on multi-object text, the scene rendering pipeline that composites the predictions from all local NeRFs, and the joint optimization on both local and global representation models.
+            To elaborate, our editable 3D scene layout represents a global frame of the scene by decomposing it into a set of local frames, where each is parameterized by a local NeRF, a 3D bounding box, and a corresponding local text prompt.
+            For instance, the text prompt `A teddy bear and a stuffed monkey sit side by side' is interpreted as a 3D scene layout.  
+            The whole 3D layout, \ie, scene frame, consists of two 3D bounding boxes, \ie local frames \#1 and \#2, with specific local text prompts, \ie, `a teddy bear' and `a stuffed monkey'. 
+            To render the scene view, we first calculate the ray-box intersections between the boxes and rays $({\boldsymbol{r}}_o, \boldsymbol{\phi}_d, {\boldsymbol{\theta}}_d)$, where the ${\boldsymbol{r}}_o$ is the ray origin and the $({\boldsymbol{r}}_o, \boldsymbol{\phi}_d)$ is its direction.
+            Then, to infer each object's properties in local NeRFs, we sample the global points $({\boldsymbol{x}}_g, {\boldsymbol{y}}_g, {\boldsymbol{z}}_g)$ in the global frame within the ray-box intersection intervals and project them into the normalized local location $({\boldsymbol{x}}_l, {\boldsymbol{y}}_l, {\boldsymbol{z}}_l)$ in the local frame.
+            Given the local sampling points $({\boldsymbol{x}}_l, {\boldsymbol{y}}_l, {\boldsymbol{z}}_l)$, the implicit local NeRF ${\boldsymbol{\theta}}_l$ outputs four pseudo-color channels ${\boldsymbol{C}}_l$ and density $\boldsymbol{\sigma}$, which can be used to render a local view of the local frame to match its local text prompt.
+            We further calibrate the predicted pseudo-color $\boldsymbol{C}_l$ from local frames by adding the global embeddings ${\boldsymbol{emb}}_g$ to improve the global view consistency.
+            Then, the calibrated predictions after composition are used to reconstruct the scene view by volumetric rendering along the rays.
+            Lastly, the rendered views based on local and global frames are guided by score distillation sampling loss $\nabla \mathcal{L}_{\text{SDS}}$ to optimize all the learnable parameters. 
+            <img src="./method.png" class="img-responsive" alt="method" class="center"><br>
+
+          </div>
+        </div>
+    
+    
+         <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results Demos
+                </h3>   
+          <table><tr>
+          <td><img src="./gif/CompoNeRF1.gif" class="img-responsive" alt="real" class="center"><br>
+          <td><img src="./gif/CompoNeRF2.gif" class="img-responsive" alt="real" class="center"><br>
+          <td><img src="./gif/CompoNeRF3.gif" class="img-responsive" alt="real" class="center"><br>
+          <td><img src="./gif/CompoNeRF4.gif" class="img-responsive" alt="real" class="center"><br>
+          </tr>
+          <tr>
+          <td><img src="./gif/CompoNeRF5.gif" class="img-responsive" alt="real" class="center"><br>
+          <td><img src="./gif/CompoNeRF6.gif" class="img-responsive" alt="real" class="center"><br>
+          <td><img src="./gif/CompoNeRF7.gif" class="img-responsive" alt="real" class="center"><br>
+          <td><img src="./gif/CompoNeRF8.gif" class="img-responsive" alt="real" class="center"><br>
+          </tr></table>
+          </div>
+        </div>
+		      
+    	<div class="row">      
+     <!-- <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Demo with Our HRDFuse
+          </h3>   
+    </div>   
+      
+    <div class="col-md-8 col-md-offset-2">
+
+            <video width="800"  controls >
+                <source src="./video/1.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>   
+    </div>          
+      </div> -->
+   <!-- ##### BibTex #####-->
+        <hr>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+ 
+                <div class="row align-items-center">
+                    <div class="col py-3">
+                        <pre class="border">           
+@misc{lin2023componerf,
+    title={CompoNeRF: Text-guided Multi-object Compositional NeRF with Editable 3D Scene Layout}, 
+    author={Yiqi Lin and Haotian Bai and Sijia Li and Haonan Lu and Xiaodong Lin and Hui Xiong and Lin Wang},
+    year={2023},
+    eprint={2303.13843},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
+                        </pre>
+                    </div>
+                </div>
+              
+    
+          </div>
+          
+        </div>
+    </div>
+</body>
+</html>
