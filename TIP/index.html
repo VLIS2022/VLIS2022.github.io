@@ -148,37 +148,10 @@
              The goal is to predict an HR omnidirectional depth map $D_{\mathrm{HR}}$ from an LR ODI $I_{\mathrm{LR}}$ as input, using only an LR depth map $D^{\mathrm{GT}}_{\mathrm{LR}}$ for supervision. As shown in Fig.~\ref{fig:framework}, our framework consists of an ODI SR task, a scene structural knowledge transfer (SSKT) module, and an HR depth estimation task. The ODI SR is employed as an auxiliary task and trained collaboratively with the HR depth estimation task. Specifically, we introduce uncertainty estimation to the ODI SR task for scene structural knowledge extraction. To transfer the extracted knowledge, the SSKT module is proposed with two components. The first is to share the parameters of the proposed cylindrical implicit interpolation function (CIIF) between the two tasks. The second is the feature distillation (FD) loss that provides extra structural regularization. 
               </p>
 		      
-            <img src="./sfa-v6.png" class="img-responsive" alt="method" class="center"><br>
+            <img src="./framework.png" class="img-responsive" alt="method" class="center"><br>
 
           </div>
-        </div>
-    
-    
-         <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Results on Real Data
-                </h3>   
-            
-          <img src="./real_data.png" class="img-responsive" alt="real" class="center"><br>
-           
-          </div>
-        </div>
-		      
-    	<div class="row">      
-     <div class="col-md-8 col-md-offset-2">
-          <h3>
-              Demo with Our HRDFuse
-          </h3>   
-    </div>   
-      
-    <div class="col-md-8 col-md-offset-2">
-
-            <video width="800"  controls >
-                <source src="./video/1.mp4" type="video/mp4">
-              Your browser does not support HTML video.
-            </video>   
-    </div>          
+        </div>             
       </div>
    <!-- ##### BibTex #####-->
         <hr>
