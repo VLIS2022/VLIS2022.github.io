@@ -18,4 +18,4 @@ Endeavors have been recently made to leverage the vision transformer (ViT) for t
   year={2023}
 }
 ```
-Code is avaliable at (https://github.com/JinjingZhu/PMTrans).
+Code is avaliable at [PMTrans](https://github.com/JinjingZhu/PMTrans).
