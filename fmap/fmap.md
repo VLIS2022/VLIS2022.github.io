@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Learning Spatial-Temporal Implicit Neural Representations for Event-Guided Video Super-Resolution
-description: CVPR 2023
+title: Factorized Efficient Neural Field Mapping for Real-Time Dense RGB SLAM
+description: arxiv
 ---
 
 
@@ -15,17 +15,36 @@ description: CVPR 2023
 
 # Abstract
 
-Event cameras sense the intensity changes asynchronously and produce event streams with high dynamic range and low latency. This has inspired research endeavors utilizing events to guide the challenging video super-resolution (VSR) task. In this paper, we make the first attempt to address a novel problem of achieving VSR at random scales by taking advantages of the high temporal resolution property of events. This is hampered by the difficulties of representing the spatial-temporal information of events when guiding VSR. To this end, we propose a novel framework that incorporates the spatial-temporal interpolation of events to VSR in a unified framework. Our key idea is to learn implicit neural representations from queried spatial-temporal coordinates and features from both RGB frames and events. Our method contains three parts. Specifically, the Spatial-Temporal Fusion (STF) module first learns the 3D features from events and RGB frames. Then, the Temporal Filter (TF) module unlocks more explicit motion information from the events near the queried timestamp and generates the 2D features. Lastly, the Spatial Temporal Implicit Representation (STIR) module recovers the SR frame in arbitrary resolutions from the outputs of these two modules. In addition, we collect a real-world dataset with spatially aligned events and RGB frames. Extensive experiments show that our method significantly surpass the prior-arts and achieves VSR with random scales, e.g., 6.5.
-
+In this paper, we introduce FMapping, an efficient neural field mapping framework
+that facilitates the continuous estimation of a colorized point cloud map in real-time
+dense RGB SLAM. To achieve this challenging goal without depth, a hurdle is
+how to improve efficiency and reduce the mapping uncertainty of the RGB SLAM
+system. To this end, we first build up a theoretical analysis by decomposing the
+SLAM system into tracking and mapping parts, and the mapping uncertainty is
+explicitly defined within the frame of neural representations. Based on the anal-
+ysis, we then propose an effective factorization scheme for scene representation
+and introduce a sliding window strategy to reduce the uncertainty for scene re-
+construction. Specifically, we leverage the factorized neural field to decompose
+uncertainty into a lower-dimensional space, which enhances robustness to noise
+and improves training efficiency. We then propose the sliding window sampler
+to reduce uncertainty by incorporating coherent geometric cues from observed
+frames during map initialization to enhance convergence. Our factorized neural
+mapping approach enjoys some advantages, such as low memory consumption,
+more efficient computation, and fast convergence during map initialization. Exper-
+iments on two benchmark datasets show that our method can update the map of
+high-fidelity colorized point clouds around 2 seconds in real time while requiring
+no customized CUDA kernels. Additionally, it utilizes ×20 fewer parameters
+than the most concise neural implicit mapping of prior methods for SLAM, e.g.,
+iMAP and around ×1000 fewer parameters than the state-of-the-art approach,
+e.g., NICE-SLAM and DIM-SLAM. 
 
 
 # Publication
 
 ```
-@article{lu21cvpr,
-  title={Learning Spatial-Temporal Implicit Neural Representations for Event-Guided Video Super-Resolution},
+@article{fmapHua2023,
+  title={FMapping: Factorized Efficient Neural Field Mapping for Real-Time Dense RGB SLAM},
   author={Yunfan Lu, Zipeng Wang, Minjie Liu, Hongjian Wang, Lin Wang},
-  journal={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2022}
+  year={2023arxiv}
 }
 ```
