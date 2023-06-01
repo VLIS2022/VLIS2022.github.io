@@ -42,70 +42,23 @@
 
                 <span class="author-block">
                   <!--<a href="https://mohammadjohari.github.io/"> Mohammad Mahdi Johari</a> <sup>1,2</sup>, <a href="https://ch.linkedin.com/in/camilla-carta"> Camilla Carta </a><sup>3</sup>, <a href="https://fleuret.org/francois/"> François Fleuret </a><sup>4,2,1</sup> </span> -->
-                  <a href="https://mohammadjohari.github.io/"> Mohammad Mahdi Johari</a> <sup>1,2</sup>, <a href="https://ch.linkedin.com/in/camilla-carta"> Camilla Carta </a><sup>3</sup>, <a href="https://fleuret.org/francois/"> François Fleuret </a><sup>4,2,1</sup> </span>
-                  <div class="row">
-                    <div class="col-md-12 text-center">
-                        <ul class="list-inline">
-                            <li>
-                    <img src="./image/haoai.jpg" height="80px"><br>
-                                <a href="https://haoai-1997.github.io/" >
-                                 Hao Ai
-                                </a>
-                                <br /> AI Thrust, HKUST(GZ)
-                                <br /> ARC Lab, Tencent PCG
-                            </li>
-        
-                            <li>
-                    <img src="./image/zidongcao.jpg" height="80px"><br>
-                                Zidong Cao
-                              </a>
-                                <br /> AI Thrust, HKUST(GZ)
-                              <br /> &nbsp &nbsp
-                            </li>
-        
-                            <li>
-                    <img src="./image/yanpeicao.jpg" height="80px"><br>
-                                <a href="https://yanpei.me/">
-                                    Yanpei Cao
-                              </a>
-                                <br />ARC Lab, Tencent PCG
-                              <br /> &nbsp &nbsp
-                            </li>
-                      
-                            <li>
-                    <img src="./image/yingshan.jpg" height="80px"><br>
-                                   Ying Shan
-                                </a>
-                                <br />ARC Lab, Tencent PCG
-                              <br /> &nbsp &nbsp
-                            </li>
-                          
-                            <li>
-                    <img src="./image/linwang.jpg" height="80px"><br>
-                                <a href="https://addisonwang2013.github.io/vlislab/linwang.html">
-                                   Addison Lin Wang
-                                </a>
-                                <br /> AI Thrust, HKUST(GZ) 
-                    <br/> Dept. of CSE, HKUST 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
+                  <img src="./image/haoai.jpg" height="80px"><br> Tongyan Hua </a> <sup>1</sup>, 
+                  <img src="./image/haoai.jpg" height="80px"><br> Haotian Bai </a><sup>1</sup>, 
+                  <img src="./image/haoai.jpg" height="80px"><br> Zidong Cao </a><sup>1</sup>,
+                  <img src="./image/haoai.jpg" height="80px"><br> Addison Lin Wang </a><sup>1,2</sup>  
+                </span>
+
                 <div class="is-size-5 publication-authors">
-                  <span class="author-block"><sup>1</sup> Idiap Research Institute &nbsp;&nbsp;</span>
-                  <span class="author-block"><sup>2</sup> EPFL &nbsp;&nbsp;</span>
-                  <span class="author-block"><sup>3</sup> ams Osram &nbsp;&nbsp;</span>
-                  <span class="author-block"><sup>4</sup> University of Geneva &nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>1</sup> AI Thrust, HKUST(GZ) &nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>2</sup> Dept. of CSE, HKUST &nbsp;&nbsp;</span>
                 </div>
 
                 <br>
-                <h1 style="font-size:32px;font-weight:bold;color:darkblue">CVPR 2023 Highlight </h1>
                 <div class="column has-text-centered">
                   <div class="publication-links">
 
                     <!-- <\!-- PDF -\-> -->
-                     <span class="link-block">
+                    <!--  <span class="link-block">
                        <a href="https://publidiap.idiap.ch/attachments/papers/2023/Johari_CVPR_2023.pdf"
                           class="external-link button is-normal is-rounded is-dark">
                          <span class="icon">
@@ -113,7 +66,7 @@
                          </span>
                          <span>Paper</span>
                        </a>
-                     </span>
+                     </span>  -->
 
                     <!-- <\!-- ArXiv -\->               -->
                     <span class="link-block">
@@ -182,9 +135,12 @@
             <h2 class="title is-2">Abstract</h2>
             <div class="content has-text-justified">
               <p>
-                We present ESLAM, an efficient implicit neural representation method for Simultaneous Localization and Mapping (SLAM). ESLAM reads RGB-D frames with unknown camera poses in a sequential manner and incrementally reconstructs the scene representation while estimating the current camera position in the scene. We incorporate the latest advances in Neural Radiance Fields (NeRF) into a SLAM system, resulting in an efficient and accurate dense visual SLAM method. Our scene representation consists of multi-scale axis-aligned perpendicular feature planes and shallow decoders that, for each point in the continuous space, decode the interpolated features into Truncated Signed Distance Field (TSDF) and RGB values. Our extensive experiments on two standard and recent datasets, Replica and ScanNet, show that ESLAM improves the accuracy of 3D reconstruction and camera localization of state-of-the-art dense visual SLAM methods by more than 50%, while it runs up to &times10 faster and does not require any pre-training. Implementation source code will be publicly available.
+                In this paper, we introduce FMapping, an efficient neural field mapping framework that facilitates the continuous estimation of a colorized point cloud map in real-time dense RGB SLAM. To achieve this challenging goal without depth, a hurdle is how to improve efficiency and reduce the mapping uncertainty of the RGB SLAM system. 
+                To this end, we first build up a theoretical analysis by decomposing the SLAM system into tracking and mapping parts, and the mapping uncertainty is explicitly defined within the frame of neural representations. Based on the analysis, we then propose an effective factorization scheme for scene representation and introduce a sliding window strategy to reduce the uncertainty for scene reconstruction. Specifically, we leverage the factorized neural field to decompose uncertainty into a lower-dimensional space, which enhances robustness to noise and improves training efficiency. 
+                We then propose the sliding window sampler to reduce uncertainty  by incorporating coherent geometric cues from observed frames during map initialization to enhance convergence. 
+                Our factorized neural mapping approach enjoys some advantages, such as low memory consumption, more efficient computation, and fast convergence during map initialization.
+                Experiments on two benchmark datasets show that our method can update the map of high-fidelity colorized point clouds around 2 seconds in real time while requiring no customized CUDA kernels. Additionally, it utilizes x20 fewer parameters than the most concise neural implicit mapping of prior methods for SLAM, e.g., iMAP and around x1000 fewer parameters than the state-of-the-art approach, e.g., NICE-SLAM.              
               </p>
-
             </div>
           </div>
         </div>
