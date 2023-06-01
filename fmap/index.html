@@ -166,44 +166,26 @@
       <div class="container"> 
         <div class="columns is-centered"> 
           <div class="column is-full-width">
-            <h2 align="center"  class="title is-2"> Qualitative Analysis with Textured Meshes </h2>
+            <h2 align="center"  class="title is-2"> Results </h2>
 
-            <h3 align="center"> Hover over image to move the zoomed in patch </h3>
-            <h3 align="center">Click on reference image to switch to a
-            different image</h3>
+            <h3 align="center"> Dense mapping snapshots (at 100, 400, and 1800 input frames) of the on-the-fly running of NICE-SLAM(-), iMAP(-), and ours in full-length Replica (Room0) sequence, given ground truth (GT) poses without depth supervision. </h3>
+            <h3 align="center">(-) denotes that we make modifications to the original implementations by eliminating the back-propagation of the gradient from depth supervision. </h3>
               
               <!-- Images -->
-              <div class="img-zoom-container" align="center">
-                <figure display="inline-block">
-                  <img id="reference"
-                       src="include/images/comp/gt/000.png" data-image="include/images/comp/gt/" >
-                  <figcaption>Reference</figcaption>
-                </figure>
-                
-                <figure display="inline-block">
-                  <div id="zoomed-imap" class="img-zoom-result"
-                       data-image="include/images/comp/imap/"></div>
-                  <figcaption><a href="https://edgarsucar.github.io/iMAP/">iMAP<sup>*</sup></a></figcaption>
-                </figure>
-                
-                <figure display="inline-block">
-                  <div id="zoomed-nice" class="img-zoom-result"
-                       data-image="include/images/comp/nice/"></div>
-                  <figcaption><a href="https://pengsongyou.github.io/nice-slam">NICE-SLAM</a></figcaption>
-                </figure>
-                
-                <figure display="inline-block">
-                  <div id="zoomed-eslam" class="img-zoom-result"
-                       data-image="include/images/comp/eslam/"></div>
-                  <figcaption>ESLAM (Ours)</figcaption>
-                </figure>
-
+              <div class="container"> 
+                <div align="center" style="margin-top:80px;" style="margin-bottom:120px;">
+                  <img style='height: auto; width: 100%; object-fit: contain'
+                        src="show1.png" alt="show1">
+              </div>
               </div>
               <br>
-              <figcaption style="font-size: small">&nbsp &nbsp iMAP<sup>*</sup> is the reimplementation of <a href="https://edgarsucar.github.io/iMAP/">iMAP</a> by <a href="https://pengsongyou.github.io/nice-slam">NICE-SLAM.</a></figcaption>
-          </div>
-        </div>
-      </div>
+              <div class="container"> 
+                <div align="center" style="margin-top:80px;" style="margin-bottom:120px;">
+                  <img style='height: auto; width: 100%; object-fit: contain'
+                        src="show2.png" alt="show2">
+              </div>
+              </div>
+              <br>
     </section>
 
     <br>
