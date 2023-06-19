@@ -15,9 +15,32 @@ How to smoothly bridge the source and target domains by constructing an intermed
 we propose a novel and effective method, called PMTrans (PatchMix Transformer) to construct the intermediate representations. Overall, PMTrans interprets the process of domain alignment as a min- max cross entropy (CE) game with three players, i.e., the feature extractor, a classifier, and a PatchMix module, to find the Nash Equilibria. Importantly, the PatchMix module is proposed to effectively build up the intermediate domain, i.e., probability distribution, by learning to sample patches from both domains with weights generated from a learnable Beta distribution based on the game-theoretical models.
 
 ![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm_1.jpg)
-# Proposed framework
 
+## Patch-Mix
 
+The definition of PatchMix is
+
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm_6.jpg)
+
+The comparison between PatchMix and Mixup variants is shown as
+
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm_7.jpg)
+
+## A Min-Max CE Game
+Each player's cost function in this game is represented as
+
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm_5.jpg)
+
+## Proposed framework
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/PM_2.jpg)
+
+## Two semi-supervised loss
+The illustration of two proposed semi-supervised losses
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm-3.jpg)
+
+# Result
+The results on the most challenging dataset DomainNet is shown as
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/PM-4.jpg)
 
 
 # Publication
