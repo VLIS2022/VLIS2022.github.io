@@ -39,8 +39,8 @@ Each player's cost function in this game is represented as
 ## Proposed framework
 ![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/PM_2.png)
 
-## Two semi-supervised loss
-The illustration of two proposed semi-supervised losses
+## Semi-supervised mixup loss
+The illustration of two proposed semi-supervised mixup loss is 
 <div align=center>
 <img src="https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm-3.png" width="50%">
 </div>
