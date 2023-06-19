@@ -20,27 +20,28 @@ we propose a novel and effective method, called PMTrans (PatchMix Transformer) t
 
 The definition of PatchMix is
 
-![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm_6.jpg)
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm_6.png)
 
 The comparison between PatchMix and Mixup variants is shown as
 
-![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm_7.jpg)
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm_7.png)
 
 ## A Min-Max CE Game
 Each player's cost function in this game is represented as
 
-![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm_5.jpg)
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm_5.png)
 
 ## Proposed framework
-![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/PM_2.jpg)
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/PM_2.png)
 
 ## Two semi-supervised loss
 The illustration of two proposed semi-supervised losses
-![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm-3.jpg)
+
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/pm-3.png)
 
 # Result
 The results on the most challenging dataset DomainNet is shown as
-![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/PM-4.jpg)
+![image](https://github.com/VLIS2022/VLIS2022.github.io/blob/main/cvpr23/PMTrans/PM-4.png)
 
 
 # Publication
