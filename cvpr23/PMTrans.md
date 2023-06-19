@@ -24,37 +24,37 @@ we propose a novel and effective method, called PMTrans (PatchMix Transformer) t
 The definition of PatchMix is
 
 <div align=center>
-<img src="assets/images/cvpr23/pm_6.png" width="50%">
+<img src="../assets/images/cvpr23/pm_6.png" width="50%">
 </div>
 
 The comparison between PatchMix and Mixup variants is shown as
 
 <div align=center>
-<img src="assets/images/cvpr23/pm_7.png">
+<img src="../assets/images/cvpr23/pm_7.png">
 </div>
 
 ## A Min-Max CE Game
 Each player's cost function in this game is represented as
 
 <div align=center>
-<img src="assets/images/cvpr23/pm_5.png" width="50%">
+<img src="../assets/images/cvpr23/pm_5.png" width="50%">
 </div>
 
 ## Proposed framework
 <div align=center>
-<img src="assets/images/cvpr23/PM_2.png">
+<img src="../assets/images/cvpr23/PM_2.png">
 </div>
 
 ## Semi-supervised mixup loss
 The illustration of two proposed semi-supervised mixup loss is 
 <div align=center>
-<img src="assets/images/cvpr23/pm-3.png" width="50%">
+<img src="../assets/images/cvpr23/pm-3.png" width="50%">
 </div>
 
 # Result
 The results on the most challenging dataset DomainNet is shown as
 <div align=center>
-<img src="assets/images/cvpr23/PM-4.png">
+<img src="../assets/images/cvpr23/PM-4.png">
 </div>
 
 
