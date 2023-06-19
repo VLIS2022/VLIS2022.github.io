@@ -15,7 +15,7 @@ How to smoothly bridge the source and target domains by constructing an intermed
 
 we propose a novel and effective method, called PMTrans (PatchMix Transformer) to construct the intermediate representations. Overall, PMTrans interprets the process of domain alignment as a min- max cross entropy (CE) game with three players, i.e., the feature extractor, a classifier, and a PatchMix module, to find the Nash Equilibria. Importantly, the PatchMix module is proposed to effectively build up the intermediate domain, i.e., probability distribution, by learning to sample patches from both domains with weights generated from a learnable Beta distribution based on the game-theoretical models.
 <div align=center>
-<img src="https://github.com/VLIS2022/VLIS2022.github.io/tree/main/assets/images/cvpr23/pm_1.jpg" width="50%">
+<img src="assets/images/cvpr23/pm_1.jpg" width="50%">
 </div>
 
 ## Patch-Mix
