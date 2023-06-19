@@ -8,9 +8,6 @@ description: CVPR 2023 (Highlight)
   <img src="assets/images/cvpr23/egvsr.png" alt="eres" style="width: 500""/>
 </a> -->
 
-<!-- [video](https://www.youtube.com/watch?v=ty531p2Me7Qng) -->
-[![png](https://i.328888.xyz/2023/03/16/K5vCL.png)](https://www.youtube.com/watch?v=ty531p2Me7Qng)
-
 
 # Abstract
 
