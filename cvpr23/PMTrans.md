@@ -1,6 +1,11 @@
+---
+layout: default
+title: Patch-Mix Transformer for Unsupervised Domain Adaptation:A Game Perspective
+description: CVPR 2023 (Highlight)
+---
 
-# Patch-Mix Transformer for Unsupervised Domain Adaptation:A Game Perspective
-CVPR 2023(Highlight)
+<img src="assets/images/cvpr23/egvsr.png" alt="eres" style="width: 500""/>
+
 
 # Abstract
 
