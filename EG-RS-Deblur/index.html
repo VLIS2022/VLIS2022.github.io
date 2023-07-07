@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EG-RS-Deblur</title>
+    <meta name="author" content="Yunfan Lu">
+    <meta name="description" content="Project page of EG-RS-Deblur paper, 2023">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="eccv_logo.png">
+    <!-- Format -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="../format/app.css">
+    <link rel="stylesheet" href="../format/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="../format/app.js"></script>
+
+  </head>
+
+  <body style=“text-align: center;”>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                Learning INR for Event-guided Rolling Shutter Frame Correction, Deblur, and Interpolation  <br /> 
+         
+<!--                 <small>
+                    
+                </small> -->
+            </h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+			<img src="./image/yunfanlu.jpg" height="80px"><br>
+                         Yunfan Lu
+                        </a>
+                        <br /> AI Thrust, HKUST(GZ)
+                        <br /> &nbsp &nbsp
+                    </li>
+
+                    <li>
+			<img src="./image/guoqiangliang.png" height="80px"><br>
+                        Guoqiang Liang
+                      </a>
+                        <br /> AI Thrust, HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+                  
+                    <li>
+			    <img src="./image/linwang.jpeg" height="80px"><br>
+                        <a href="https://addisonwang2013.github.io/vlislab/linwang.html">
+                           Addison Lin Wang
+                        </a>
+                        <br /> AI Thrust, HKUST(GZ) 
+			    <br/> Dept. of CSE, HKUST 
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- ##### Elements #####-->
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+		 <a href="https://arxiv.org/abs/2305.15078">
+                            <img src="./image/paper.png" height="100px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <img src="./image/youtube_icon.jpeg" height="100px"><br>
+                            <h4><strong>Video</strong></h4>
+                        </a>
+                        </li>
+                        <li>
+                        <img src="./image/github_icon.jpeg" height="100px"><br>
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>              
+                                           
+                    </ul>
+                </div>
+        </div>
+
+
+        <!-- ##### Abstract #####-->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Images captured by rolling shutter (RS) cameras under fast camera motion often contain obvious image distortions and blur, which can be modeled as a row-wise combination of a sequence of global shutter (GS) frames within the exposure time. 
+                    Naturally, recovering high-frame-rate GS sharp frames from an RS blur image needs to simultaneously consider RS correction, deblur, and frame interpolation.
+                    Tacking this task is nontrivial, and to our knowledge, no feasible solutions exist by far.
+                    A naive way is to decompose the whole process into separate tasks and simply cascade existing methods; however, this results in cumulative errors and noticeable artifacts. 
+                    Event cameras enjoy many advantages, e.g., high temporal resolution, making them potential for our problem. To this end, we make the first attempt to recover high-frame-rate sharp GS frames from an RS blur image and paired event data. Our key idea is to learn an implicit neural representation (INR) to directly map the position and time coordinates to RGB values to address the interlocking degradations in the image restoration process. 
+                    Specifically, we introduce spatial-temporal implicit encoding (STE) to convert an RS blur image and events into a spatial-temporal representation (STR).
+                    To query a specific sharp frame (GS or RS), we embed the exposure time into STR and decode the embedded features to recover a sharp frame.
+                    Moreover, we propose an RS blur image-guided integral loss to better train the network.
+                    Our method is relatively lightweight as it contains only 0.379 M parameters and demonstrates high efficiency as the STE is called only once for any number of interpolation frames.
+                    Extensive experiments show that our method significantly outperforms prior methods addressing only one or two of the tasks.
+                </p>
+            </div>
+        </div>
+
+ 
+
+        <!-- ##### Results #####-->
+   
+     <div class="row">     
+       
+     <div class="col-md-8 col-md-offset-2">
+            <h3>
+                Results on the Gev-RS dataset 
+            </h3>
+            <p class="text-justify">
+                Results of deblur and rolling shutter correction
+            </p>
+		    <img src="image/visual_result1.png" class="img-responsive" alt="vis_res" class="center"><br>
+            <p class="text-justify">
+            Results of deblur, rolling shutter correction and video frame interpolation
+            </p>
+            <img src="image/result.png" class="img-responsive" alt="vis_res" class="center"><br>
+            <p class="text-justify">
+            Video Results of deblur, rolling shutter correction and video frame interpolation
+            </p>
+            <video width="720" height="720" controls src="nips-1579-color.mp4" class="img-responsive" alt="vis_res" class="center"><br>
+    </div>     
+      </div>
+
+        <!-- ##### Approach #####-->
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+              <h3>
+                Approach 
+              </h3>
+              <p class="text-justify">
+                An overview of our framework is depicted in the following figure, which takes an RS blur image and paired events as inputs and outputs N sharp GS frames with a high-frame-rate.
+                To substantiate the defined functions f_e, f_te, and f_d, as mentioned in Sec.3.1, our proposed framework consists of three components:
+                （1） Spatial-Temporal Implicit Encoding (STE),
+                （2） Exposure Time Embedding (ETE), and
+                （3） Pixel-by-pixel Decoding (PPD).
+                Specifically, we first introduce an STE with deformable convolution to encode the RS blur frame and events into a spatial-temporal representation (STR) (Sec.3.2.1).
+                To provide exposure temporal information for STR, we embed the exposure start timestamp of each pixel from the GS or RS by ETE. (Sec.3.2.2).
+                Lastly, the PDD module adds ETE to STR to generate RS or GS sharp frames (Sec.3.2.3). We now describe these components in detail. 
+              </p>
+		      
+            <img src="image/framework.png" class="img-responsive" alt="method" class="center"><br>
+
+          </div>
+        </div>             
+      </div>
+   <!-- ##### BibTex #####-->
+        <hr>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+ 
+                <div class="row align-items-center">
+                    <div class="col py-3">
+                        <pre class="border">             
+@article{lu2023learning,
+    title={Learning INR for Event-guided Rolling Shutter Frame Correction, Deblur, and Interpolation},
+    author={Lu, Yunfan and Liang, Guoqiang and Wang, Lin},
+    journal={arXiv preprint arXiv:2305.15078},
+    year={2023}
+    }
+</pre>
+                    </div>
+                </div>
+              
+    
+          </div>
+          
+        </div>
+    </div>
+</body>
+</html>
