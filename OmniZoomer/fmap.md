@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Factorized Efficient Neural Field Mapping for Real-Time Dense RGB SLAM
+title: OmniZoomer: Learning to Move and Zoom in on Sphere at High-Resolution
 description: arxiv
 ---
 
@@ -15,28 +15,7 @@ description: arxiv
 
 # Abstract
 
-In this paper, we introduce FMapping, an efficient neural field mapping framework
-that facilitates the continuous estimation of a colorized point cloud map in real-time
-dense RGB SLAM. To achieve this challenging goal without depth, a hurdle is
-how to improve efficiency and reduce the mapping uncertainty of the RGB SLAM
-system. To this end, we first build up a theoretical analysis by decomposing the
-SLAM system into tracking and mapping parts, and the mapping uncertainty is
-explicitly defined within the frame of neural representations. Based on the anal-
-ysis, we then propose an effective factorization scheme for scene representation
-and introduce a sliding window strategy to reduce the uncertainty for scene re-
-construction. Specifically, we leverage the factorized neural field to decompose
-uncertainty into a lower-dimensional space, which enhances robustness to noise
-and improves training efficiency. We then propose the sliding window sampler
-to reduce uncertainty by incorporating coherent geometric cues from observed
-frames during map initialization to enhance convergence. Our factorized neural
-mapping approach enjoys some advantages, such as low memory consumption,
-more efficient computation, and fast convergence during map initialization. Exper-
-iments on two benchmark datasets show that our method can update the map of
-high-fidelity colorized point clouds around 2 seconds in real time while requiring
-no customized CUDA kernels. Additionally, it utilizes ×20 fewer parameters
-than the most concise neural implicit mapping of prior methods for SLAM, e.g.,
-iMAP and around ×1000 fewer parameters than the state-of-the-art approach,
-e.g., NICE-SLAM and DIM-SLAM. 
+Omnidirectional images (ODIs) have become increasingly popular, as their large field-of-view (FoV) can offer viewers the chance to freely choose the view directions in immersive environments such as virtual reality. The M\"obius transformation is typically employed to further provide the opportunity for movement and zoom on ODIs, but applying it to the image level often results in blurry effect and aliasing problem. In this paper, we propose a novel deep learning-based approach, called \textbf{OmniZoomer}, to incorporate the M\"obius transformation into the network for movement and zoom on ODIs. By learning various transformed feature maps under different conditions, the network is enhanced to handle the increasing edge curvatures, which alleviates the blurry effect. Moreover, to address the aliasing problem, we propose two key components. Firstly, to compensate for the lack of pixels for describing curves, we enhance the feature maps in the high-resolution (HR) space and calculate the transformed index map with a spatial index generation module. Secondly, considering that ODIs are inherently represented in the spherical space, we propose a spherical resampling module that combines the index map and HR feature maps to transform the feature maps for better spherical correlation. The transformed feature maps are decoded to output a zoomed ODI. Experiments show that our method can produce HR and high-quality ODIs with the flexibility to move and zoom in to the object of interest. 
 
 
 # Publication
