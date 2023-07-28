@@ -1,6 +1,6 @@
 ---
 layout: default
-title: OmniZoomer: Learning to Move and Zoom in on Sphere at High-Resolution
+title: OmniZoomer Learning to Move and Zoom in on Sphere at High-Resolution
 description: arxiv
 ---
 
