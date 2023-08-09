@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>HRDFuse</title>
+    <meta name="author" content="Yexin Liu">
+    <meta name="description" content="Project page of Night-TTA paper, 2023">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="eccv_logo.png">
+    <!-- Format -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="../format/app.css">
+    <link rel="stylesheet" href="../format/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="../format/app.js"></script>
+
+  </head>
+
+  <body style=“text-align: center;”>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+               Test-Time Adaptation for Nighttime Color-Thermal Semantic Segmentation  <br />
+         
+<!--                 <small>
+                    
+                </small> -->
+            </h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+			<img src="./image/YexinLiu.jpg" height="80px"><br>
+                         Yexin Liu
+                        </a>
+                        <br /> AI Thrust, HKUST(GZ)
+                        <br /> ARC Lab, Tencent PCG
+                    </li>
+
+                    <li>
+			<img src="./image/WeimingZhang.jpg" height="80px"><br>
+                        Weiming Zhang
+                      </a>
+                        <br /> AI Thrust, HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+
+                    <li>
+			    <img src="./image/GuoyangZHAO.jpg" height="80px"><br>
+                            Guoyang ZHAO
+                      </a>
+                        <br />Robotics and Autonomous Systems Thrust, HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+              
+                    <li>
+			    <img src="./image/jinjingzhu.jpg" height="80px"><br>
+                           Jinjing Zhu
+                        </a>
+                        <br />AI Thrust, HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+
+                    <li>
+                <img src="./image/AthanasiosV.Vasilakos.png" height="80px"><br>
+                           Athanasios V. Vasilakos
+                        </a>
+                        <br />Center for AI Research (CAIR), University of Agder(UiA)
+                      <br /> &nbsp &nbsp
+                    </li>
+
+                    <li>
+			    <img src="./image/linwang.jpg" height="80px"><br>
+                        <a href="https://addisonwang2013.github.io/vlislab/linwang.html">
+                           Addison Lin Wang
+                        </a>
+                        <br /> AI Thrust, HKUST(GZ) 
+			    <br/> Dept. of CSE, HKUST 
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- ##### Elements #####-->
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+			                <a href="https://arxiv.org/abs/2307.04470">
+                                <img src="./paper.png" height="100px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+
+                            <img src="./image/youtube_icon.jpg" height="100px"><br>
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/LAW1223/nighttta">
+                            <img src="./image/github_icon.jpg" height="100px"><br>
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+
+                        <li>
+                            
+                            <img src="./image/colab_icon.jpg" height="100px"><br>
+                                <h4><strong>Colab</strong></h4>
+                            </a>
+                        </li>
+
+                      
+                    </ul>
+                </div>
+        </div>
+
+
+        <!-- ##### Abstract #####-->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+               The ability to scene understanding in adverse visual conditions, e.g., nighttime, has sparked active research for color-thermal semantic segmentation. However, it is essentially hampered by two critical problems: 1) the day-night gap of color images is larger than that of thermal images, and 2) the classwise performance of color images at night is not consistently higher or lower than that of thermal images. We propose the first test-time adaptation (TTA) framework, dubbed Night-TTA, to address the problems for nighttime color-thermal semantic segmentation without access to the source (daytime) data during adaptation. Our method enjoys three key technical parts. Firstly, as one modality (e.g., color) suffers from a larger domain gap than that of the other (e.g., thermal), Imaging Heterogeneity Refinement (IHR) employs an interaction branch on the basis of color and thermal branches to prevent cross-modal discrepancy and performance degradation. Then, Class Aware Refinement (CAR) is introduced to obtain reliable ensemble logits based on pixel-level distribution aggregation of the three branches. In addition, we also design a specific learning scheme for our TTA framework, which enables the ensemble logits and three student logits to collaboratively learn to improve the quality of predictions during the testing phase of our Night TTA. Extensive experiments show that our method achieves state-of-the-art (SoTA) performance with a 13.07% boost in mIoU.
+                </p>
+            </div>
+        </div>
+
+ 
+
+        <!-- ##### Results #####-->
+   
+     <div class="row">     
+       
+     <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Results on the benchmarkdataset: Stanford2D3D, Matterport3D and 3D60
+          </h3>
+		  <img src="./visual_results.png" class="img-responsive" alt="vis_res" class="center"><br>
+    </div>     
+      </div>
+
+        <!-- ##### Approach #####-->
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+              <h3>
+                Approach 
+              </h3>
+              <p class="text-justify">
+             Overview of our method, consisting of three parts: feature extractors for both ERP and TP inputs, spatial feature alignment (SFA) module,
+             and collaborative depth distribution classification (CDDC) module. 
+		      <br>
+              </p>
+		      
+            <img src="./framework.png" class="img-responsive" alt="method" class="center"><br>
+
+          </div>
+        </div>
+
+		      
+    	<div class="row">      
+     <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Demo with Our Method
+          </h3>   
+    </div>   
+      
+    <div class="col-md-8 col-md-offset-2">
+
+            <video width="800"  controls >
+                <source src="./video/Demo.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>   
+    </div>          
+      </div>
+   <!-- ##### BibTex #####-->
+        <hr>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+ 
+                <div class="row align-items-center">
+                    <div class="col py-3">
+                        <pre class="border">             
+@article{liu2023test,
+  title={Test-Time Adaptation for Nighttime Color-Thermal Semantic Segmentation},
+  author={Liu, Yexin and Zhang, Weiming and Zhao, Guoyang and Zhu, Jinjing and Vasilakos, Athanasios and Wang, Lin},
+  journal={arXiv preprint arXiv:2307.04470},
+  year={2023}
+}
+</pre>
+                    </div>
+                </div>
+              
+    
+          </div>
+          
+        </div>
+    </div>
+</body>
+</html>
