@@ -147,7 +147,7 @@
        
      <div class="col-md-8 col-md-offset-2">
           <h3>
-              Results on the benchmarkdataset: Stanford2D3D, Matterport3D and 3D60
+              Results on the benchmark dataset
           </h3>
 		  <img src="./visual_results.png" class="img-responsive" alt="vis_res" class="center"><br>
     </div>     
@@ -160,8 +160,8 @@
                 Approach 
               </h3>
               <p class="text-justify">
-             Overview of our method, consisting of three parts: feature extractors for both ERP and TP inputs, spatial feature alignment (SFA) module,
-             and collaborative depth distribution classification (CDDC) module. 
+             Overview of the Night-TTA framework, which consists of Color, Thermal, and Interaction branches (students). Importantly, we propose Image Heterogeneity Refinement (IHR) and Class Aware Refinement (CAR). The IHR employs an interaction branch with a CMSA module to maintain the shared information to ensure reliable predictions for either color or thermal branch.
+    The CAR is buttressed by the EEF module to generate more reliable ensemble logits (teacher) to learn the discriminative feature of each class in color-thermal modalities. We also propose the training and testing schemes of our TTA framework.
 		      <br>
               </p>
 		      
