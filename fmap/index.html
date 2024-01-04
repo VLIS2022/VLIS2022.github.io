@@ -45,12 +45,15 @@
                   Tongyan Hua </a> <sup>1</sup>, 
                   Haotian Bai </a><sup>1</sup>, 
                   Zidong Cao </a><sup>1</sup>,
+                  Ming Liu </a><sup>1,2</sup>,
+                  Dacheng Tao </a><sup>3</sup>,
                   Addison Lin Wang </a><sup>1,2</sup>  
                 </span>
 
                 <div class="is-size-5 publication-authors">
                   <span class="author-block"><sup>1</sup> AI Thrust, HKUST(GZ) &nbsp;&nbsp;</span>
                   <span class="author-block"><sup>2</sup> Dept. of CSE, HKUST &nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>3</sup> Faculty of Engineering, University of Sydney &nbsp;&nbsp;</span>
                 </div>
 
                 <br>
@@ -157,7 +160,7 @@
         <!--/ Overview. -->
         <div align="center" style="margin-top:80px;" style="margin-bottom:120px;">
           <img style='height: auto; width: 100%; object-fit: contain'
-               src="framework.png" alt="overview_image">
+               src="FMapping-pipeline.png" alt="overview_image">
         </div>
       </div>
 
@@ -178,13 +181,15 @@
               <div class="container"> 
                 <div align="center" style="margin-top:80px;" style="margin-bottom:120px;">
                   <img style='height: auto; width: 90%; object-fit: contain'
-                        src="show1.png" alt="show1">
+                        src="main-compare.png" alt="main-compare">
               </div>
               </div>
               <br>
-            <h3 align="center"> Dense mapping snapshots (at 100, 400, and 1800 input frames) of the on-the-fly running of NICE-SLAM(-), iMAP(-), and ours in full-length Replica (Room0) sequence, 
-              given ground truth (GT) poses without depth supervision. (-) denotes that we make modifications to the original implementations by eliminating the back-propagation of the gradient from depth supervision.
-            </h3>
+                <h3 align="center"> Comparison of final reconstruction on Replica dataset. 
+                  The blind spot regions are delineated with <span style="color:red;">red (GO-SLAM) </span> and <span style="color:green;">green (Hi-Map)</span> boxes, 
+                  respectively, and corresponding visualizations are provided from observable viewpoints. 
+                  Our approach achieves higher scene fidelity and exhibits stronger expressive capability for indoor vertical planes.
+                </h3>
               <br>
            
               <div class="container"> 
