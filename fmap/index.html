@@ -5,7 +5,7 @@
     <meta name="description" content="FMapping">
     <meta name="keywords" content="fmap">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FMapping: Factorized Efficient Neural Field Mapping for Real-Time Dense RGB SLAM</title>
+    <title>Hi-Map: Hierarchical Factorized Radiance Field for High-Fidelity Monocular Dense Mapping</title>
  
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -36,7 +36,7 @@
         <div class="container">
           <div class="columns is-centered">
             <div class="column has-text-centered">
-              <h1 class="title is-2 publication-title">FMapping: Factorized Efficient Neural Field Mapping for Real-Time Dense RGB SLAM</h1>
+              <h1 class="title is-2 publication-title">Hi-Map: Hierarchical Factorized Radiance Field for High-Fidelity Monocular Dense Mapping</h1>
 
                             <div class="is-size-5 publication-authors">
 
@@ -136,11 +136,17 @@
             <h2 class="title is-2">Abstract</h2>
             <div class="content has-text-justified">
               <p>
-                In this paper, we introduce FMapping, an efficient neural field mapping framework that facilitates the continuous estimation of a colorized point cloud map in real-time dense RGB SLAM. To achieve this challenging goal without depth, a hurdle is how to improve efficiency and reduce the mapping uncertainty of the RGB SLAM system. 
-                To this end, we first build up a theoretical analysis by decomposing the SLAM system into tracking and mapping parts, and the mapping uncertainty is explicitly defined within the frame of neural representations. Based on the analysis, we then propose an effective factorization scheme for scene representation and introduce a sliding window strategy to reduce the uncertainty for scene reconstruction. Specifically, we leverage the factorized neural field to decompose uncertainty into a lower-dimensional space, which enhances robustness to noise and improves training efficiency. 
-                We then propose the sliding window sampler to reduce uncertainty  by incorporating coherent geometric cues from observed frames during map initialization to enhance convergence. 
-                Our factorized neural mapping approach enjoys some advantages, such as low memory consumption, more efficient computation, and fast convergence during map initialization.
-                Experiments on two benchmark datasets show that our method can update the map of high-fidelity colorized point clouds around 2 seconds in real time while requiring no customized CUDA kernels. Additionally, it utilizes x20 fewer parameters than the most concise neural implicit mapping of prior methods for SLAM, e.g., iMAP and around x1000 fewer parameters than the state-of-the-art approach, e.g., NICE-SLAM.              
+                In this paper, we introduce Hi-Map, a novel monocular dense mapping approach based on Neural Radiance Field (NeRF). 
+                Hi-Map is exceptional in its capacity to achieve efficient and high-fidelity mapping using only posed RGB inputs. 
+                Our method eliminates the need for external depth priors derived from e.g., a depth estimation model. 
+                Our key idea is to represent the scene as a hierarchical feature grid that encodes the radiance and then factorizes it into feature planes and vectors. 
+                As such, the scene representation becomes simpler and more generalizable for fast and smooth convergence on new observations. 
+                This allows for efficient computation while alleviating noise patterns by reducing the complexity of the scene representation. 
+                Buttressed by the hierarchical factorized representation, we leverage the Sign Distance Field (SDF) as a proxy of rendering for inferring the volume density, 
+                demonstrating high mapping fidelity. 
+                Moreover, we introduce a dual-path encoding strategy to strengthen the photometric cues and further boost the mapping quality, 
+                especially for the distant and textureless regions. 
+                Extensive experiments demonstrate our method's superiority in geometric and textural accuracy over the state-of-the-art NeRF-based monocular mapping methods.             
               </p>
             </div>
           </div>
@@ -200,11 +206,10 @@
         <div class="container content">
           <h2 class="title">BibTeX</h2>
           <pre><code>
-@inproceedings{fmaphua23,
-  author = {T, Hua. H, Bai. Z, Cao. and L, Wang.},
-  title = {{FMapping}: Factorized Efficient Neural Field Mapping for Real-Time Dense RGB SLAM},
+@inproceedings{himap23hua,
+  author = {T, Hua. H, Bai. Z, Cao. M, Liu. D, Tao. and L, Wang.},
+  title = {{Hi-Map}: Hierarchical Factorized Radiance Field for High-Fidelity Monocular Dense Mapping},
   year = {2023},
-  type = {arXiv}
 }
           </code></pre>
         </div>
