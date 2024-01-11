@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>HRDFuse</title>
+    <meta name="author" content="Hao Ai">
+    <meta name="description" content="Project page of Dream360 paper, 2023">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="eccv_logo.png">
+    <!-- Format -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="../format/app.css">
+    <link rel="stylesheet" href="../format/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="../format/app.js"></script>
+
+  </head>
+
+  <body style=“text-align: center;”>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+               Dream360: Diverse and Immersive Outdoor Virtual Scene Creation via Transformer-Based 360&deg; Image Outpainting <br /> 
+         
+<!--                 <small>
+                    
+                </small> -->
+            </h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+			<img src="./image/haoai.jpg" height="80px"><br>
+                        <a href="https://haoai-1997.github.io/" >
+                         Hao Ai
+                        </a>
+                        <br /> AI Thrust, HKUST(GZ)
+                        <br /> ARC Lab, Tencent PCG
+                    </li>
+
+                    <li>
+			<img src="./image/zidongcao.jpg" height="80px"><br>
+                        Zidong Cao
+                      </a>
+                        <br /> AI Thrust, HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+
+                  
+                    <li>
+			    <img src="./image/linwang.jpg" height="80px"><br>
+                        <a href="https://addisonwang2013.github.io/vlislab/linwang.html">
+                           Addison Lin Wang
+                        </a>
+                        <br /> AI Thrust, HKUST(GZ) 
+			    <br/> Dept. of CSE, HKUST 
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- ##### Elements #####-->
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+			 <a href="https://arxiv.org/abs/2303.11616">
+                            <img src="./paper.png" height="100px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+
+                            <img src="./image/youtube_icon.jpg" height="100px"><br>
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/haoai-1997/Dream360">
+                            <img src="./image/github_icon.jpg" height="100px"><br>
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+
+                        <li>
+                            
+                            <img src="./image/colab_icon.jpg" height="100px"><br>
+                                <h4><strong>Colab</strong></h4>
+                            </a>
+                        </li>
+ 
+
+                        <li>
+                            <a href="./VR2023_Dream360_supp.pdf">
+                            <img src="./image/slide_icon.jpg" height="100px"><br>
+                                <h4><strong>Supp</strong></h4>
+                            </a>
+                        </li>                     
+                      
+                      
+                    </ul>
+                </div>
+        </div>
+
+
+        <!-- ##### Abstract #####-->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+				360&deg; images, with a field-of-view (FoV) of 180&deg; * 360&deg;, provide more immersive and realistic environments for emerging virtual reality (VR) applications, such as virtual tourism, where users desire to create diverse panoramic scenes from a narrow FoV photo they take from a viewpoint via portable devices (\eg, smartphone). Intuitively, it brings us to an interesting question: `<i>How to allow the users to freely create diverse and immersive virtual scenes from a narrow FoV image with a specified viewport<i>?' To this end, we propose a transformer-based 360&deg; image outpainting framework called <b>Dream360<b>, which can generate diverse, high-fidelity, and high-resolution panoramas from user-selected viewports, considering the spherical properties of 360&deg; images. Compared with existing methods, e.g., \cite{Akimoto2022DiverseP3}, which primarily focus on inputs with rectangular masks and central locations while overlooking the spherical property of 360&deg; images, our Dream360 explores the spherical property more effectively and offers higher outpainting flexibility. Dream360 comprises two key learning stages: <b>(I)<b> codebook-based panorama outpainting via Spherical-VQGAN (S-VQGAN), and <b>(II)<b> frequency-aware refinement with a novel frequency-aware consistency loss. Specifically, S-VQGAN learns a sphere-specific codebook from spherical harmonics (SH) values, providing a better representation of spherical data distribution for scene modeling. The frequency-aware refinement matches the resolution and further improve the semantic consistency and visual fidelity of the generated results. Our Dream360 achieves significantly lower Frechet Inception Distance (FID) scores and better visual fidelity than existing methods. We also conducted a user study involving 15 participants to interactively evaluate the quality of the generated results in VR, demonstrating the flexibility and superiority of our Dream360 framework.rably better</b> results than the SOTA methods.
+                </p>
+            </div>
+        </div>
+
+ 
+
+        <!-- ##### Results #####-->
+   
+     <div class="row">     
+       
+     <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Results on SUN360 dataset
+          </h3>
+		  <img src="./visual_results.png" class="img-responsive" alt="vis_res" class="center"><br>
+    </div>     
+      </div>
+
+        <!-- ##### Approach #####-->
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+              <h3>
+                Approach 
+              </h3>
+              <p class="text-justify">
+             Overview of our Dream360. 
+		      <br>
+              </p>
+		      
+            <img src="./framework.png" class="img-responsive" alt="method" class="center"><br>
+
+          </div>
+        </div>
+    
+
+</body>
+</html>
