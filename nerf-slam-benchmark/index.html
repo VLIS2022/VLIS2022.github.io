@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Hi-Map">
+    <meta name="keywords" content="himap">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hi-Map: Hierarchical Factorized Radiance Field for High-Fidelity Monocular Dense Mapping</title>
+ 
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      
+      function gtag() {
+      dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+
+      gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/magnifier.css">
+    
+  </head>
+
+  <body>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+
+              <h1 class="title is-1 publication-title">
+                <img src="hi.png" width="70">
+                Hi-Map&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </h1> 
+              <h1 class="title is-2 publication-title">Hierarchical Factorized Radiance Field for High-Fidelity Monocular Dense Mapping</h1>
+
+                            <div class="is-size-5 publication-authors">
+
+                <span class="author-block">
+                  <!--<a href="https://mohammadjohari.github.io/"> Mohammad Mahdi Johari</a> <sup>1,2</sup>, <a href="https://ch.linkedin.com/in/camilla-carta"> Camilla Carta </a><sup>3</sup>, <a href="https://fleuret.org/francois/"> François Fleuret </a><sup>4,2,1</sup> </span> -->
+                  Tongyan Hua </a> <sup>1</sup>, 
+                  Haotian Bai </a><sup>1</sup>, 
+                  Zidong Cao </a><sup>1</sup>,
+                  Ming Liu </a><sup>1,2</sup>,
+                  Dacheng Tao </a><sup>3</sup>,
+                  Addison Lin Wang </a><sup>1,2</sup>  
+                </span>
+
+                <div class="is-size-5 publication-authors">
+                  <span class="author-block"><sup>1</sup> AI Thrust, HKUST(GZ) &nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>2</sup> Dept. of CSE, HKUST &nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>3</sup> Faculty of Engineering, University of Sydney &nbsp;&nbsp;</span>
+                </div>
+
+                <br>
+                <div class="column has-text-centered">
+                  <div class="publication-links">
+
+                    <!-- <\!-- PDF -\-> -->
+                    <!--  <span class="link-block">
+                       <a href="https://publidiap.idiap.ch/attachments/papers/2023/Johari_CVPR_2023.pdf"
+                          class="external-link button is-normal is-rounded is-dark">
+                         <span class="icon">
+                           <i class="fa fa-file-pdf-o"></i>
+                         </span>
+                         <span>Paper</span>
+                       </a>
+                     </span>  -->
+
+                    <!-- <\!-- ArXiv -\->               -->
+                    <span class="link-block">
+                      <a href="http://arxiv.org/abs/2401.03203"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span>
+
+                    <!-- <\!-- supplementary PDF -\-> -->
+                    <!-- <span class="link-block"> -->
+                    <!--   <a href="include/supp.pdf" -->
+                    <!--      class="external-link button is-normal is-rounded is-dark"> -->
+                    <!--     <span class="icon"> -->
+                    <!--       <i class="fas fa-file-pdf"></i> -->
+                    <!--     </span> -->
+                    <!--     <span>Supplementary</span> -->
+                    <!--   </a> -->
+                    <!-- </span> -->
+
+                    <!-- Video -->
+<!--                    <span class="link-block">-->
+<!--                      <a href="https://www.youtube.com/watch?v=-jNBsG3IP54"-->
+<!--                         class="external-link button is-normal is-rounded is-dark">-->
+<!--                        <span class="icon">-->
+<!--                          <i class="fa fa-video-camera"></i>-->
+<!--                        </span>-->
+<!--                        <span>Video</span>-->
+<!--                      </a>-->
+<!--                    </span>-->
+
+                    <!-- Code -->
+                    <span class="link-block">
+                      <a href="https://github.com/thua919/Hi-Map"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fa-brands fa-github"></i>
+                          </svg>
+                        </span>
+                        <span>Code</span>
+                      </a>
+                    </span>
+
+                  </div>
+                </div>
+              </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+    <br>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-two-thirds">
+            <h2 class="title is-2">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                In this paper, we introduce Hi-Map, a novel monocular dense mapping approach based on Neural Radiance Field (NeRF). 
+                Hi-Map is exceptional in its capacity to achieve efficient and high-fidelity mapping using only posed RGB inputs. 
+                Our method eliminates the need for external depth priors derived from e.g., a depth estimation model. 
+                Our key idea is to represent the scene as a hierarchical feature grid that encodes the radiance and then factorizes it into feature planes and vectors. 
+                As such, the scene representation becomes simpler and more generalizable for fast and smooth convergence on new observations. 
+                This allows for efficient computation while alleviating noise patterns by reducing the complexity of the scene representation. 
+                Buttressed by the hierarchical factorized representation, we leverage the Sign Distance Field (SDF) as a proxy of rendering for inferring the volume density, 
+                demonstrating high mapping fidelity. 
+                Moreover, we introduce a dual-path encoding strategy to strengthen the photometric cues and further boost the mapping quality, 
+                especially for the distant and textureless regions. 
+                Extensive experiments demonstrate our method's superiority in geometric and textural accuracy over the state-of-the-art NeRF-based monocular mapping methods.             
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container"> 
+        <!--/ Overview. -->
+        <div align="center" style="margin-top:80px;" style="margin-bottom:120px;">
+          <img style='height: auto; width: 100%; object-fit: contain'
+               src="FMapping-pipeline.png" alt="overview_image">
+        </div>
+      </div>
+
+    </section>
+
+    <br>
+    <br>
+    <br>
+
+    <section>
+      <div class="container"> 
+        <div class="columns is-centered"> 
+          <div class="column is-full-width">
+            <h2 align="center"  class="title is-2"> Results </h2>
+
+                          
+              <!-- Images -->
+              <div class="container"> 
+                <div align="center" style="margin-top:80px;" style="margin-bottom:120px;">
+                  <img style='height: auto; width: 90%; object-fit: contain'
+                        src="main-compare.png" alt="main-compare">
+              </div>
+              </div>
+              <br>
+                <h3 align="center"> Comparison of final reconstruction on Replica dataset. 
+                  The blind spot regions are delineated with <span style="color:red;">red (GO-SLAM) </span> and <span style="color:green;">green (Hi-Map)</span> boxes, 
+                  respectively, and corresponding visualizations are provided from observable viewpoints. 
+                  Our approach achieves higher scene fidelity and exhibits stronger expressive capability for indoor vertical planes.
+                </h3>
+              <br>
+           
+              <div class="container"> 
+                <div align="center" style="margin-top:80px;" style="margin-bottom:120px;">
+                  <video id="teaser" autoplay muted loop height="80%">
+                    <source src="Hi-Map-web.mp4" type="video/mp4">
+                  </video>
+              </div>
+              </div>
+              <br>
+              <h2 align="center"> 
+              <strong>Hi-Map</strong> generate stable and accurate map.
+                </h2>
+              <br>
+    </section>
+
+    <br>
+    <br>
+    <br>
+
+      <section class="section" id="BibTeX citation">
+        <div class="container content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>
+@inproceedings{himap23hua,
+  author = {T, Hua. H, Bai. Z, Cao. M, Liu. D, Tao. and L, Wang.},
+  title = {{Hi-Map}: Hierarchical Factorized Radiance Field for High-Fidelity Monocular Dense Mapping},
+  year = {2023},
+}
+          </code></pre>
+        </div>
+      </section>
+
+  </body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./static/js/bulma-carousel.min.js"></script>
+<script src="./static/js/bulma-slider.min.js"></script>
+<script src="./static/js/index.js"></script>  
+
+<script src="./static/js/magnifier.js"></script>
+<script> imageZoom("reference", ["zoomed-imap", "zoomed-nice", "zoomed-eslam" ], 7); </script>
+<script> imageZoom("reference_mesh", ["zoomed-imap_mesh", "zoomed-nice_mesh", "zoomed-eslam_mesh" ], 7); </script>
