@@ -41,7 +41,7 @@
                 <img src="how.png" width="80">
                 How the Hell does NeRF Matter for SLAM? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </h1> 
-              <h1 class="title is-2 publication-title">A Benchmark for Implicit Neural Representation and Geometric Rendering in Real-Time RGB-D SLAM</h1>
+              <h1 class="title is-2 publication-title">Benchmarking Implicit Neural Representation and Geometric Rendering in Real-Time RGB-D SLAM</h1>
               <h1 class="title is-2 publication-title">CVPR 2024</h1>
 
                             <div class="is-size-5 publication-authors">
@@ -140,17 +140,18 @@
             <h2 class="title is-2">Abstract</h2>
             <div class="content has-text-justified">
               <p>
-                In this paper, we introduce Hi-Map, a novel monocular dense mapping approach based on Neural Radiance Field (NeRF). 
-                Hi-Map is exceptional in its capacity to achieve efficient and high-fidelity mapping using only posed RGB inputs. 
-                Our method eliminates the need for external depth priors derived from e.g., a depth estimation model. 
-                Our key idea is to represent the scene as a hierarchical feature grid that encodes the radiance and then factorizes it into feature planes and vectors. 
-                As such, the scene representation becomes simpler and more generalizable for fast and smooth convergence on new observations. 
-                This allows for efficient computation while alleviating noise patterns by reducing the complexity of the scene representation. 
-                Buttressed by the hierarchical factorized representation, we leverage the Sign Distance Field (SDF) as a proxy of rendering for inferring the volume density, 
-                demonstrating high mapping fidelity. 
-                Moreover, we introduce a dual-path encoding strategy to strengthen the photometric cues and further boost the mapping quality, 
-                especially for the distant and textureless regions. 
-                Extensive experiments demonstrate our method's superiority in geometric and textural accuracy over the state-of-the-art NeRF-based monocular mapping methods.             
+                Implicit neural representation (INR), in combination with geometric rendering, has recently been employed in real-time dense RGB-D SLAM.
+                Despite active research endeavors being made, there lacks a unified protocol for fair evaluation, impeding the 
+                evolution of this area. In this work, we establish, to our knowledge, the first open-source benchmark framework to 
+                evaluate the performance of a wide spectrum of commonly used INRs and rendering functions for mapping and localization. 
+                The goal of our benchmark is to 1) gain an intuition of how different INRs and rendering functions impact mapping and localization and 
+                2) establish a unified evaluation protocol w.r.t. the design choices that may impact the mapping and localization. 
+                With the framework, we conduct a large suite of experiments, offering various insights in choosing the INRs and geometric rendering functions: 
+                for example, the dense feature grid outperforms other INRs (e.g. tri-plane and hash grid), 
+                even when geometric and color features are jointly encoded for memory efficiency. 
+                To extend the findings into the practical scenario, a hybrid encoding strategy is proposed to bring the best of the accuracy and completion 
+                from the grid-based and decomposition-based INRs. We further propose explicit hybrid encoding for high-fidelity dense grid mapping to comply 
+                with the RGB-D SLAM system that puts the premise on robustness and computation efficiency. 
               </p>
             </div>
           </div>
@@ -215,10 +216,12 @@
         <div class="container content">
           <h2 class="title">BibTeX</h2>
           <pre><code>
-@inproceedings{himap23hua,
-  author = {T, Hua. H, Bai. Z, Cao. M, Liu. D, Tao. and L, Wang.},
-  title = {{Hi-Map}: Hierarchical Factorized Radiance Field for High-Fidelity Monocular Dense Mapping},
-  year = {2023},
+            @InProceedings{nerfslam24hua,
+    author    = {Tongyan Hua and Lin Wang},
+    title     = {Benchmarking Implicit Neural Representation and Geometric Rendering in Real-Time RGB-D SLAM},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
 }
           </code></pre>
         </div>
