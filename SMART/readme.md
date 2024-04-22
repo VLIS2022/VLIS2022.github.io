@@ -1,1 +1,1 @@
-**Project page:** http://VLIS2022.github.io/OmniZoomer
+**Project page:** http://VLIS2022.github.io/SMART
