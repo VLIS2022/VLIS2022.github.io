@@ -5,7 +5,7 @@
     <meta name="description" content="FMapping">
     <meta name="keywords" content="fmap">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{OmniZoomer}: Learning to Move and Zoom in on Sphere at High-Resolution</title>
+    <title>Energy-based Unsupervised Domain-Adaptive Segmentation with Depth Guidance</title>
  
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -139,7 +139,7 @@
             <h2 class="title is-2">Abstract</h2>
             <div class="content has-text-justified">
               <p>
-                Omnidirectional images (ODIs) have become increasingly popular, as their large field-of-view (FoV) can offer viewers the chance to freely choose the view directions in immersive environments such as virtual reality. The M\"obius transformation is typically employed to further provide the opportunity for movement and zoom on ODIs, but applying it to the image level often results in blurry effect and aliasing problem. In this paper, we propose a novel deep learning-based approach, called \textbf{OmniZoomer}, to incorporate the M\"obius transformation into the network for movement and zoom on ODIs. By learning various transformed feature maps under different conditions, the network is enhanced to handle the increasing edge curvatures, which alleviates the blurry effect. Moreover, to address the aliasing problem, we propose two key components. Firstly, to compensate for the lack of pixels for describing curves, we enhance the feature maps in the high-resolution (HR) space and calculate the transformed index map with a spatial index generation module. Secondly, considering that ODIs are inherently represented in the spherical space, we propose a spherical resampling module that combines the index map and HR feature maps to transform the feature maps for better spherical correlation. The transformed feature maps are decoded to output a zoomed ODI. Experiments show that our method can produce HR and high-quality ODIs with the flexibility to move and zoom in to the object of interest.            
+                Recent endeavors have been made to leverage self-supervised depth estimation as guidance in unsupervised domain adaptation (UDA) for semantic segmentation. Prior arts, however, overlook the discrepancy between semantic and depth features, as well as the reliability of feature fusion, thus leading to suboptimal segmentation performance. To address this issue, we propose a novel UDA framework called SMART (croSs doMain semAntic segmentation based on eneRgy esTimation) that utilizes Energy-Based Models (EBMs) to obtain task-adaptive features and achieve reliable feature fusion for semantic segmentation with self-supervised depth estimates. Our framework incorporates two novel components: energy-based feature fusion (EB2F) and energy-based reliable fusion Assessment (RFA) modules. The EB2F module produces task-adaptive semantic and depth features by explicitly measuring and reducing their discrepancy using Hopfield energy for better feature fusion. The RFA module evaluates the reliability of the feature fusion using an energy score to improve the effectiveness of depth guidance. Extensive experiments on two datasets demonstrate that our method achieves significant performance gains over prior works, validating the effectiveness of our energy-based learning approach.
               </p>
             </div>
           </div>
