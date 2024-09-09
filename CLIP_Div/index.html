@@ -5,7 +5,7 @@
     <meta name="description" content="FMapping">
     <meta name="keywords" content="fmap">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Energy-based Unsupervised Domain-Adaptive Segmentation with Depth Guidance</title>
+    <title>CLIP the Divergence: Language-guided Unsupervised Domain Adaptation</title>
  
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -36,23 +36,20 @@
         <div class="container">
           <div class="columns is-centered">
             <div class="column has-text-centered">
-              <h1 class="title is-2 publication-title">Energy-based Unsupervised Domain-Adaptive Segmentation with Depth Guidance</h1>
+              <h1 class="title is-2 publication-title">CLIP the Divergence: Language-guided Unsupervised Domain Adaptation</h1>
 
                             <div class="is-size-5 publication-authors">
 
                 <span class="author-block">
                   <!--<a href="https://mohammadjohari.github.io/"> Mohammad Mahdi Johari</a> <sup>1,2</sup>, <a href="https://ch.linkedin.com/in/camilla-carta"> Camilla Carta </a><sup>3</sup>, <a href="https://fleuret.org/francois/"> François Fleuret </a><sup>4,2,1</sup> </span> -->
                   Jinjing Zhu </a> <sup>1</sup>, 
-                  Zhedong Hu </a><sup>3</sup>, 
-                  Tar-Kim Kim </a><sup>4</sup>,
+                  Yucheng Chen </a><sup>1</sup>, 
                   Lin Wang </a><sup>1,2</sup>
                 </span>
 
                 <div class="is-size-5 publication-authors">
                   <span class="author-block"><sup>1</sup> AI Thrust, HKUST(GZ) &nbsp;&nbsp;</span>
                   <span class="author-block"><sup>2</sup> Dept. of CSE, HKUST &nbsp;&nbsp;</span>
-                  <span class="author-block"><sup>3</sup>  NCEPU &nbsp;&nbsp;</span>
-                  <span class="author-block"><sup>4</sup> KAIST &nbsp;&nbsp;</span>
                 </div>
 
                 <br>
@@ -138,7 +135,26 @@
             <h2 class="title is-2">Abstract</h2>
             <div class="content has-text-justified">
               <p>
-                Recent endeavors have been made to leverage self-supervised depth estimation as guidance in unsupervised domain adaptation (UDA) for semantic segmentation. Prior arts, however, overlook the discrepancy between semantic and depth features, as well as the reliability of feature fusion, thus leading to suboptimal segmentation performance. To address this issue, we propose a novel UDA framework called SMART (croSs doMain semAntic segmentation based on eneRgy esTimation) that utilizes Energy-Based Models (EBMs) to obtain task-adaptive features and achieve reliable feature fusion for semantic segmentation with self-supervised depth estimates. Our framework incorporates two novel components: energy-based feature fusion (EB2F) and energy-based reliable fusion Assessment (RFA) modules. The EB2F module produces task-adaptive semantic and depth features by explicitly measuring and reducing their discrepancy using Hopfield energy for better feature fusion. The RFA module evaluates the reliability of the feature fusion using an energy score to improve the effectiveness of depth guidance. Extensive experiments on two datasets demonstrate that our method achieves significant performance gains over prior works, validating the effectiveness of our energy-based learning approach.
+                Unsupervised domain adaption (UDA) has emerged as a popular solution to tackle the divergence between the labeled source and unlabeled target domains. Recently, some research efforts have been made to leverage large vision-language models, such as CLIP, and then fine-tune or learn prompts from them for
+addressing the challenging UDA task. In this work, we shift the
+gear to a new direction by directly leveraging CLIP to measure the
+domain divergence and propose a novel language-guided approach
+for UDA, dubbed as CLIP-Div. Our key idea is to harness CLIP
+to 1) measure the domain divergence via the acquired domain-
+agnostic distribution and 2) calibrate the target pseudo labels
+with language guidance, to effectively reduce the domain gap and
+improve the UDA model’s generalization capability. Specifically,
+our major technical contribution lies in the proposed two novel
+language-guided domain divergence measurement losses: absolute
+divergence and relative divergence. These loss terms furnish
+precise guidelines for aligning the distributions of the source and
+target domains with the domain-agnostic distribution derived from
+CLIP. Additionally, we propose a language-guided pseudo-labeling
+strategy for calibrating the target pseudo labels. Buttressed by
+it, we show that a further implementation for self-training can
+enhance the UDA model’s generalization capability on the target
+domain. CLIP-Div surpasses state-of-the-art CNN-based methods
+by a substantial margin, achieving a performance boost of +10.3% on Office-Home, +1.5% on Office-31, +0.2% on VisDA-2017, and +24.3% on DomainNet, respectively
               </p>
             </div>
           </div>
