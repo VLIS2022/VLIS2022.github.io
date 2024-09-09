@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="FMapping">
+    <meta name="keywords" content="fmap">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Energy-based Unsupervised Domain-Adaptive Segmentation with Depth Guidance</title>
+ 
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      
+      function gtag() {
+      dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+
+      gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/magnifier.css">
+    
+  </head>
+
+  <body>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-2 publication-title">Energy-based Unsupervised Domain-Adaptive Segmentation with Depth Guidance</h1>
+
+                            <div class="is-size-5 publication-authors">
+
+                <span class="author-block">
+                  <!--<a href="https://mohammadjohari.github.io/"> Mohammad Mahdi Johari</a> <sup>1,2</sup>, <a href="https://ch.linkedin.com/in/camilla-carta"> Camilla Carta </a><sup>3</sup>, <a href="https://fleuret.org/francois/"> François Fleuret </a><sup>4,2,1</sup> </span> -->
+                  Jinjing Zhu </a> <sup>1</sup>, 
+                  Zhedong Hu </a><sup>3</sup>, 
+                  Tar-Kim Kim </a><sup>4</sup>,
+                  Lin Wang </a><sup>1,2</sup>
+                </span>
+
+                <div class="is-size-5 publication-authors">
+                  <span class="author-block"><sup>1</sup> AI Thrust, HKUST(GZ) &nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>2</sup> Dept. of CSE, HKUST &nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>3</sup>  NCEPU &nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>4</sup> KAIST &nbsp;&nbsp;</span>
+                </div>
+
+                <br>
+                <div class="column has-text-centered">
+                  <div class="publication-links">
+
+                    <!-- <\!-- PDF -\-> -->
+                    <!--  <span class="link-block">
+                       <a href="https://publidiap.idiap.ch/attachments/papers/2023/Johari_CVPR_2023.pdf"
+                          class="external-link button is-normal is-rounded is-dark">
+                         <span class="icon">
+                           <i class="fa fa-file-pdf-o"></i>
+                         </span>
+                         <span>Paper</span>
+                       </a>
+                     </span>  -->
+
+                    <!-- <\!-- ArXiv -\->               -->
+                    <span class="link-block">
+                      <a href="https://arxiv.org/abs/2402.03795"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span>
+
+                    <!-- <\!-- supplementary PDF -\-> -->
+                    <!-- <span class="link-block"> -->
+                    <!--   <a href="include/supp.pdf" -->
+                    <!--      class="external-link button is-normal is-rounded is-dark"> -->
+                    <!--     <span class="icon"> -->
+                    <!--       <i class="fas fa-file-pdf"></i> -->
+                    <!--     </span> -->
+                    <!--     <span>Supplementary</span> -->
+                    <!--   </a> -->
+                    <!-- </span> -->
+
+                    <!-- Video -->
+<!--                    <span class="link-block">-->
+<!--                      <a href="https://www.youtube.com/watch?v=-jNBsG3IP54"-->
+<!--                         class="external-link button is-normal is-rounded is-dark">-->
+<!--                        <span class="icon">-->
+<!--                          <i class="fa fa-video-camera"></i>-->
+<!--                        </span>-->
+<!--                        <span>Video</span>-->
+<!--                      </a>-->
+<!--                    </span>-->
+
+                    <!-- Code -->
+                    <span class="link-block">
+                      <a href="https://github.com/thua919/FMapping"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fa-brands fa-github"></i>
+                          </svg>
+                        </span>
+                        <span>Code</span>
+                      </a>
+                    </span>
+
+                  </div>
+                </div>
+              </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+    <br>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-two-thirds">
+            <h2 class="title is-2">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Recent endeavors have been made to leverage self-supervised depth estimation as guidance in unsupervised domain adaptation (UDA) for semantic segmentation. Prior arts, however, overlook the discrepancy between semantic and depth features, as well as the reliability of feature fusion, thus leading to suboptimal segmentation performance. To address this issue, we propose a novel UDA framework called SMART (croSs doMain semAntic segmentation based on eneRgy esTimation) that utilizes Energy-Based Models (EBMs) to obtain task-adaptive features and achieve reliable feature fusion for semantic segmentation with self-supervised depth estimates. Our framework incorporates two novel components: energy-based feature fusion (EB2F) and energy-based reliable fusion Assessment (RFA) modules. The EB2F module produces task-adaptive semantic and depth features by explicitly measuring and reducing their discrepancy using Hopfield energy for better feature fusion. The RFA module evaluates the reliability of the feature fusion using an energy score to improve the effectiveness of depth guidance. Extensive experiments on two datasets demonstrate that our method achieves significant performance gains over prior works, validating the effectiveness of our energy-based learning approach.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container"> 
+        <!--/ Overview. -->
+        <div align="center" style="margin-top:80px;" style="margin-bottom:120px;">
+          <img style='height: auto; width: 100%; object-fit: contain'
+               src="framework.png" alt="overview_image">
+        </div>
+      </div>
+
+    </section>
+
+    <br>
+    <br>
+    <br>
+
+    <section>
+      <div class="container"> 
+        <div class="columns is-centered"> 
+          <div class="column is-full-width">
+            <h2 align="center"  class="title is-2"> Results </h2>
+
+                          
+              <!-- Images -->
+              <div class="container"> 
+                <div align="center" style="margin-top:80px;" style="margin-bottom:120px;">
+                  <img style='height: auto; width: 90%; object-fit: contain'
+                        src="show1.png" alt="show1">
+              </div>
+              </div>
+              <br>
+            <h3 align="center"> Architecture of the proposed SMART framework.
+            </h3>
+    </section>
+
+    <br>
+    <br>
+    <br>
+
+      <section class="section" id="BibTeX citation">
+        <div class="container content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>
+@inproceedings{fmaphua23,
+  author = {J, Zhu. Z, Hu. T, Kim. and L, Wang.},
+  title = {{Energy-based Unsupervised Domain-Adaptive Segmentation with Depth Guidance},
+  year = {2024},
+  type = {arXiv}
+}
+          </code></pre>
+        </div>
+      </section>
+
+  </body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./static/js/bulma-carousel.min.js"></script>
+<script src="./static/js/bulma-slider.min.js"></script>
+<script src="./static/js/index.js"></script>  
+
+<script src="./static/js/magnifier.js"></script>
+<script> imageZoom("reference", ["zoomed-imap", "zoomed-nice", "zoomed-eslam" ], 7); </script>
+<script> imageZoom("reference_mesh", ["zoomed-imap_mesh", "zoomed-nice_mesh", "zoomed-eslam_mesh" ], 7); </script>
