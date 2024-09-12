@@ -1,233 +1,388 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>DOT</title>
-    <meta name="author" content="Hao Ai">
-    <meta name="description" content="Project page of DOT paper, ICCV 2023">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="eccv_logo.png">
-    <!-- Format -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
-    <link rel="stylesheet" href="../format/app.css">
-    <link rel="stylesheet" href="../format/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
-    <script src="../format/app.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamic PlenOctree for Adaptive Sampling Refinement in Explicit NeRF</title>
 
-  </head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-  <body style=“text-align: center;”>
-    <div class="container" id="main">
-        <div class="row">
-            <h1 class="col-md-12 text-center">
-                Dynamic PlenOctree for Adaptive Sampling Refinement in Explicit NeRF<br /> 
-<!--                 <small>
-                    
-                </small> -->
-            </h1>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hi-neus.github.io">
+            Hi-Neus
+          </a>
+          <a class="navbar-item" href="https://vlis2022.github.io/fmap/">
+            Hi-Map
+          </a>
+          <a class="navbar-item" href="https://componerf.github.io">
+            Componerf
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2303.13434">
+            PatchMix
+          </a>
         </div>
-        
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <ul class="list-inline">
-                    <li>
-			<img src="./image/haotianbai.jpg" height="80px"><br>
-                        <a href="https://scholar.google.com/citations?hl=en&user=DIy4cA0AAAAJ" >
-                         Haotian Bai
-                        </a>
-                        
-                        <br /> AI Thrust, HKUST(GZ)
-                        <br /> &nbsp &nbsp
+      </div>
+    </div>
 
-                    </li>
+  </div>
+</nav>
 
-                    <li>
-			<img src="./image/yiqilin.jpg" height="80px"><br>
-                        Yiqi Lin
-                      </a>
-                      <br /> AI Thrust, HKUST(GZ)
-                      <br /> &nbsp &nbsp
-                    </li>
 
-                    <li>
-			    <img src="./image/yizechen.jpg" height="80px"><br>
-                        <a href="https://scholar.google.com/citations?user=G1NiRmwAAAAJ&hl=en" >
-                           Yize chen
-                        </a>
-                        <br /> AI Thrust, HKUST(GZ) 
-			            <br/> Dept. of CSE, HKUST 
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Dynamic PlenOctree for Adaptive Sampling Refinement in Explicit NeRF</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://hbai98.github.io/">Haotian Bai</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <span class="author-block">
+                <a href="https://linyq17.github.io/">Yiqi Lin</a><sup>1</sup>,</span>
+              <span class="author-block">
+            <span class="author-block">
+              <a href="https://sites.google.com/view/yizechen">Yize Chen</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://vlislab22.github.io/vlislab/linwang.html">Lin Wang</a><sup>1,2</sup>,
+            </span>
+          </div>
 
-                    </li>
-                  
-                    <li>
-			    <img src="./image/linwang.jpg" height="80px"><br>
-                        <a href="https://addisonwang2013.github.io/vlislab/linwang.html">
-                           Addison Lin Wang
-                        </a>
-                        <br /> AI Thrust, HKUST(GZ) 
-			    <br/> Dept. of CSE, HKUST 
-                    </li>
-                </ul>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Hongkong University of Science and Technology(Guangzhou),</span>
+            <span class="author-block"><sup>2</sup>Hongkong University of Science and Technology</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2307.15333"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2307.15333"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=i9MnoFhH8Ec"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
             </div>
+
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="video/dot.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">DOT</span>  refines the sample distribution of PlenOctree to adjust to changing scene complexity.
+      </h2>
+    </div>
+  </div>
+</section>
 
-
-        <!-- ##### Elements #####-->
-        <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <ul class="nav nav-pills nav-justified">
-                        <li>
-			 <!-- <a href="https://arxiv.org/abs/2303.11616"> -->
-                            <img src="./image/arxiv.png" height="100px"><br>
-                                <h4><strong>Paper</strong></h4>
-                            </a>
-                        </li>
-                        <li>
-
-                            <img src="./image/youtube_icon.jpg" height="100px"><br>
-                                <h4><strong>Video</strong></h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/164140757/DOT">
-                            <img src="./image/github_icon.jpg" height="100px"><br>
-                                <h4><strong>Code</strong></h4>
-                            </a>
-                        </li>
-
-                        <!-- <li>
-                            
-                            <img src="./image/colab_icon.jpg" height="100px"><br>
-                                <h4><strong>Colab</strong></h4>
-                            </a>
-                        </li> -->
- 
-
-                        <li>
-                            <!-- <a href="https://github.com/haoai-1997/haoai-1997.github.io/blob/main/HRDFuse/CVPR2023_HRDFuse_supp.pdf"> -->
-                            <img src="./image/slide_icon.jpg" height="100px"><br>
-                                <h4><strong>Supp</strong></h4>
-                            </a>
-                        </li>                     
-                        <li>
-                            <a href="https://addisonwang2013.github.io/vlislab/index.html">
-                            <img src="./image/lab_logo.png" height="100px"><br>
-                                <h4><strong>Vlislab</strong></h4>
-                            </a>
-                        </li>                       
-                      
-                    </ul>
-                </div>
+<!-- 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
         </div>
-
-
-        <!-- ##### Abstract #####-->
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Abstract
-                </h3>
-                <p class="text-justify">
-                    The explicit neural radiance field (NeRF) has gained considerable interest for its efficient training and fast inference capabilities, making it a promising direction such as virtual reality and gaming. In particular, PlenOctree (POT) [1], an explicit hierarchical multi-scale octree representation, has emerged as a structural and influential framework. However, POT’s fixed structure for direct optimization is sub-optimal as the scene complexity evolves continuously with updates to cached color and density, necessitating refining the sampling distribution to capture signal complexity accordingly. To address this issue, we propose the dynamic PlenOctree (DOT), which adaptively refines the sample distribution to adjust to changing scene complexity. Specifically, DOT proposes a concise yet novel hierarchical feature fusion strategy during the iterative rendering process. Firstly, it identifies the regions of interest through training signals to ensure adaptive and efficient refinement. Next, rather than directly filtering out valueless nodes, DOT introduces the sampling and pruning operations for octrees to aggregate features, enabling rapid parameter learning. Compared with POT, our DOT outperforms it by enhancing visual quality, 
-                    reducing over <b>55.15/68.84%</b> parameters, 
-                    and providing <b>1.7/1.9</b> times FPS for NeRF-synthetic and Tanks & Temples, respectively.
-                </p>
-            </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
         </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
 
- 
 
-        <!-- ##### Results #####-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>The explicit neural radiance field (NeRF) has gained considerable interest for its efficient training and fast inference capabilities, making it a promising direction such as virtual reality and gaming. In particular, PlenOctree (POT) [1], an explicit hierarchical multi-scale octree representation, has emerged as a structural and influential framework. However, POT’s fixed structure for direct optimization is sub-optimal as the scene complexity evolves continuously with updates to cached color and density, necessitating refining the sampling distribution to capture signal complexity accordingly. 
+          </p>
+          <p>
+          To address this issue, we propose the dynamic PlenOctree (DOT), which adaptively refines the sample distribution to adjust to changing scene complexity. Specifically, DOT proposes a concise yet novel hierarchical feature fusion strategy during the iterative rendering process. Firstly, it identifies the regions of interest through training signals to ensure adaptive and efficient refinement. Next, rather than directly filtering out valueless nodes, DOT introduces the sampling and pruning operations for octrees to aggregate features, enabling rapid parameter learning. Compared with POT, our DOT outperforms it by enhancing visual quality, 
+          reducing over <b>55.15/68.84%</b> parameters, 
+          and providing <b>1.7/1.9</b> times FPS for NeRF-synthetic and Tanks & Temples, respectively.
+        </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
 
-     <div class="row">     
-        <div class="col-md-8 col-md-offset-2">
-            <h3>
-                Inspiration
-            </h3>
-            <p class="text-justify">
-                While the POT framework is effective, its fixed octree structure can limit its adaptability to varying scene complexities.
-                 We introduce hierarchical feature fusion with sampling/pruning to overcome this limitation, as illustrated by the dashed box below. 
-                 Varying colors on the grid represent the training signals. 
-                 Internal nodes are denoted in <span style="color:orange">orange</span>, 
-                 while leaf nodes in <span style="color:green">orange</span>. Pruning occurs in regions of weak signal, 
-                 where cached properties in leaf nodes are aggregated, and the averaged value is propagated to internal nodes, 
-                 which become the new leaves. Complementary sampling takes place in the red regions. 
-                 The resulting sampling distribution exhibits significant improvement, as highlighted by the red boxes in our final octree results.
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Inspiration</h2>
+            <div class="content has-text-justified">
+              While the POT framework is effective, its fixed octree structure can limit its adaptability to varying scene complexities.
+              We introduce hierarchical feature fusion with sampling/pruning to overcome this limitation, as illustrated by the dashed box below. 
+              Varying colors on the grid represent the training signals. 
+              Internal nodes are denoted in <span style="color:orange">orange</span>, 
+              while leaf nodes in <span style="color:green">orange</span>. Pruning occurs in regions of weak signal, 
+              where cached properties in leaf nodes are aggregated, and the averaged value is propagated to internal nodes, 
+              which become the new leaves. Complementary sampling takes place in the red regions. 
+              The resulting sampling distribution exhibits significant improvement, as highlighted by the red boxes in our final octree results.
             </p>
-            <img src="./image/teaser.png" class="img-responsive" alt="vis_res"  class="center" >
-      </div>           
-     <div class="col-md-8 col-md-offset-2">
-          <h3>
-              Comparison on octree representations
-          </h3>
-          <p class="text-justify">
+            </div>
+          </div>
+        </div>
+          <div class="container is-max-desktop">
+            <div class="hero-body">
+              <div class="content has-text-centered">
+              <img src="./image/teaser.png" class="img-responsive center" alt="vis_res" style="width:600px;height:auto;">
+              </div>
+              <h2 class="subtitle has-text-centered">
+                <span class="dnerf">DOT</span> prunes and samples on the regions of interest.
+              </h2>
+            </div>
+          </div>
+</section>
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Performance</h2>
+
+        <!-- Interpolating. -->
+        <h3 class="title is-4">Comparison on octree representations</h3>
+        <div class="content has-text-justified">
+          <p>
             DOT shows the more compact structure of DOT, 
             resulting in fewer ray intersections, explaining our significant rendering speed boost.
 
           </p>
-		  <img src="./image/dot_cp.png" class="img-responsive" alt="vis_res" class="center"><br>
-    </div>   
-    <div class="col-md-8 col-md-offset-2">
-        <h3>
-            Comparison on visual quality and memory consumption
-        </h3>
-        <p class="text-justify">
-            DOT provides more details in complex regions, such as sharper reflections on windows and more evident edges on fences. 
-
-        </p>
-        <img src="./image/dot_cp2.png" class="img-responsive" alt="vis_res" class="center"><br>
-    </div>     
-    </div>
-
-
-		      
-    	<div class="row">      
-     <div class="col-md-8 col-md-offset-2">
-          <h3>
-              Demo 
-          </h3>   
-    </div>   
-      
-    <div class="col-md-8 col-md-offset-2">
-
-            <video width="800"  controls >
-                <source src="./video/dot.mp4" type="video/mp4">
-              Your browser does not support HTML video.
-            </video>   
-    </div>          
-      </div>
-   <!-- ##### BibTex #####-->
-        <hr>
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    BibTeX
-                </h3>
- 
-                <div class="row align-items-center">
-                    <div class="col py-3">
-                        <pre class="border">             
-@inproceedings{Bai2023DOT,
-  title={Dynamic PlenOctree for Adaptive Sampling Refinement in Explicit NeRF},
-  author={Haotian Bai, Yiqi Lin, Yize Chen, Lin Wang},
-  booktitle = {IEEE International Conference on Computer Vision (ICCV)},
-  year={2023}
-}
-</pre>
-                    </div>
-                </div>
-              
-    
-          </div>
-          
         </div>
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+            <div class="content has-text-centered">
+              <img src="./image/dot_cp.png" class="img-responsive center" alt="vis_res" style="width:1000px;height:auto;">
+            </div>
+          </div>
+        </div>
+         <!-- Interpolating. -->
+         <h3 class="title is-4">Comparison on visual quality and memory consumption</h3>
+         <div class="content has-text-justified">
+           <p>
+            DOT provides more details in complex regions, such as sharper reflections on windows and more evident edges on fences. 
+           </p>
+         </div>
+         <div class="container is-max-desktop">
+             <div class="hero-body">
+             <div class="content has-text-centered">
+               <img src="./image/dot_cp2.png" class="img-responsive center" alt="vis_res" style="width:1000px;height:auto;">
+             </div>
+           </div>
+         </div>      
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{Bai2023DOT,
+      title={Dynamic PlenOctree for Adaptive Sampling Refinement in Explicit NeRF},
+      author={Haotian Bai, Yiqi Lin, Yize Chen, Lin Wang},
+      booktitle = {IEEE International Conference on Computer Vision (ICCV)},
+      year={2023}
+    }
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
     </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

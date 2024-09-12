@@ -1,1 +1,1 @@
-**Project page:** http://VLIS2022.github.io/HRDFuse
+**Project page:** https://vlislab22.github.io/DOT/
